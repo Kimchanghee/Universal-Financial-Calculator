@@ -1,0 +1,5 @@
+{
+  "name": "Universal Financial Calculator",
+  "description": "A comprehensive financial calculator supporting compound interest, simple interest, savings goals, and ROI calculations. Features multi-language support and is designed for monetization with ad placements.",
+  "requestFramePermissions": []
+}
