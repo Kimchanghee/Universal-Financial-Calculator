@@ -48,9 +48,9 @@ const BreakEvenPointCalculator: React.FC = () => {
         <div>
             <h2 className="text-3xl font-bold mb-6 text-slate-800">{t('breakEvenTitle')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6">
-                <InputField id="fixedCosts" label={t('totalFixedCosts')} value={formatForDisplay(fixedCosts)} onChange={e => setFixedCosts(e.target.value)} unit={currency.symbol} />
-                <InputField id="variableCostPerUnit" label={t('variableCostPerUnit')} value={formatForDisplay(variableCostPerUnit)} onChange={e => setVariableCostPerUnit(e.target.value)} unit={currency.symbol} />
-                <InputField id="pricePerUnit" label={t('pricePerUnit')} value={formatForDisplay(pricePerUnit)} onChange={e => setPricePerUnit(e.target.value)} unit={currency.symbol} />
+                <InputField id="fixedCosts" label={t('totalFixedCosts')} value={formatForDisplay(fixedCosts)} onChange={e => setFixedCosts(parseForCalculation(e.target.value))} unit={currency.symbol} />
+                <InputField id="variableCostPerUnit" label={t('variableCostPerUnit')} value={formatForDisplay(variableCostPerUnit)} onChange={e => setVariableCostPerUnit(parseForCalculation(e.target.value))} unit={currency.symbol} />
+                <InputField id="pricePerUnit" label={t('pricePerUnit')} value={formatForDisplay(pricePerUnit)} onChange={e => setPricePerUnit(parseForCalculation(e.target.value))} unit={currency.symbol} />
             </div>
             <div className="mt-6 flex gap-4">
                 <button onClick={calculate} className="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-md hover:bg-blue-700 transition-colors">{t('calculate')}</button>

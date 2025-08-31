@@ -64,8 +64,8 @@ const RetirementCalculator: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6">
                 <InputField id="currentAge" label={t('currentAge')} value={currentAge} onChange={e => setCurrentAge(parseForCalculation(e.target.value))} />
                 <InputField id="retirementAge" label={t('retirementAge')} value={retirementAge} onChange={e => setRetirementAge(parseForCalculation(e.target.value))} />
-                <InputField id="currentSavings" label={t('currentSavings')} value={formatForDisplay(currentSavings)} onChange={e => setCurrentSavings(e.target.value)} unit={currency.symbol} />
-                <InputField id="monthlyContribution" label={t('monthlyContribution')} value={formatForDisplay(monthlyContribution)} onChange={e => setMonthlyContribution(e.target.value)} unit={currency.symbol} />
+                <InputField id="currentSavings" label={t('currentSavings')} value={formatForDisplay(currentSavings)} onChange={e => setCurrentSavings(parseForCalculation(e.target.value))} unit={currency.symbol} />
+                <InputField id="monthlyContribution" label={t('monthlyContribution')} value={formatForDisplay(monthlyContribution)} onChange={e => setMonthlyContribution(parseForCalculation(e.target.value))} unit={currency.symbol} />
                 <InputField id="annualReturn" label={t('estimatedAnnualReturn')} value={annualReturn} onChange={e => setAnnualReturn(parseForCalculation(e.target.value))} unit="%" />
             </div>
             <div className="mt-6 flex gap-4">

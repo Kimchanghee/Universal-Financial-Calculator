@@ -23,15 +23,32 @@ const AppContent: React.FC = () => {
         document.title = seoData.title;
         document.documentElement.lang = language;
 
-        let metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) {
-            metaDescription.setAttribute('content', seoData.description);
+        const setMetaTag = (selector: string, content: string, attr = 'content') => {
+            let element = document.querySelector(selector) as HTMLElement | null;
+            if (element) {
+                element.setAttribute(attr, content);
+            }
+        };
+        
+        const pageUrl = window.location.origin + window.location.pathname;
+
+        setMetaTag('meta[name="description"]', seoData.description);
+        setMetaTag('meta[name="keywords"]', seoData.keywords);
+        setMetaTag('link[rel="canonical"]', pageUrl, 'href');
+
+        setMetaTag('meta[property="og:title"]', seoData.title);
+        setMetaTag('meta[property="og:description"]', seoData.description);
+        setMetaTag('meta[property="og:url"]', pageUrl);
+        
+        setMetaTag('meta[property="twitter:title"]', seoData.title);
+        setMetaTag('meta[property="twitter:description"]', seoData.description);
+        setMetaTag('meta[property="twitter:url"]', pageUrl);
+
+        const structuredDataScript = document.getElementById('structured-data');
+        if (structuredDataScript) {
+            structuredDataScript.innerHTML = JSON.stringify(seoData.structuredData);
         }
 
-        let metaKeywords = document.querySelector('meta[name="keywords"]');
-        if (metaKeywords) {
-            metaKeywords.setAttribute('content', seoData.keywords);
-        }
     }, [language, activeCalculator]);
 
     const renderCalculator = useCallback(() => {
@@ -94,7 +111,7 @@ const AppContent: React.FC = () => {
             </header>
 
             <div className="container mx-auto px-4 py-2">
-                <AdBanner width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
+                <AdBanner slot="1111111111" width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
             </div>
 
             <main className="container mx-auto px-4 py-6">
@@ -123,13 +140,13 @@ const AppContent: React.FC = () => {
                         {renderCalculator()}
                     </div>
                     <div className="mt-8">
-                        <AdBanner width="w-full" height="h-64" size="336x280" label={t('adLabel')} />
+                        <AdBanner slot="2222222222" width="w-full" height="h-64" size="336x280" label={t('adLabel')} />
                     </div>
                 </div>
             </main>
 
             <footer className="container mx-auto px-4 py-8 text-center text-slate-500">
-                <AdBanner width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
+                <AdBanner slot="3333333333" width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
                 <p className="mt-4 text-sm">&copy; 2024 Universal Financial Calculator. All rights reserved.</p>
             </footer>
         </div>
