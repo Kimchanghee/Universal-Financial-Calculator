@@ -20,10 +20,10 @@ const SavingsGoalCalculator: React.FC = () => {
     };
 
     const calculate = () => {
-        const fv = parseFloat(target);
-        const pv = parseFloat(principal) || 0;
-        const termInYears = parseFloat(years);
-        const r = parseFloat(rate) / 100;
+        const fv = parseFloat(parseForCalculation(target));
+        const pv = parseFloat(parseForCalculation(principal)) || 0;
+        const termInYears = parseFloat(parseForCalculation(years));
+        const r = parseFloat(parseForCalculation(rate)) / 100;
         
         if (isNaN(fv) || isNaN(termInYears) || isNaN(r) || fv <= pv) {
             setResults([]);

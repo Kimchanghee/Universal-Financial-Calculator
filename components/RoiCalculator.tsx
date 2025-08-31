@@ -19,8 +19,8 @@ const RoiCalculator: React.FC = () => {
     };
 
     const calculate = () => {
-        const initial = parseFloat(initialInvestment);
-        const final = parseFloat(finalValue);
+        const initial = parseFloat(parseForCalculation(initialInvestment));
+        const final = parseFloat(parseForCalculation(finalValue));
 
         if (isNaN(initial) || isNaN(final) || initial === 0) {
             setResults([]);

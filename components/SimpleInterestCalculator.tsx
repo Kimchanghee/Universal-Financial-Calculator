@@ -19,9 +19,9 @@ const SimpleInterestCalculator: React.FC = () => {
     };
 
     const calculate = () => {
-        const p = parseFloat(principal);
-        const r = parseFloat(rate) / 100;
-        const termInYears = parseFloat(years);
+        const p = parseFloat(parseForCalculation(principal));
+        const r = parseFloat(parseForCalculation(rate)) / 100;
+        const termInYears = parseFloat(parseForCalculation(years));
 
         if (isNaN(p) || isNaN(r) || isNaN(termInYears)) {
             setResults([]);

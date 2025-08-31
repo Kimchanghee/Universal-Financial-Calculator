@@ -90,65 +90,79 @@ const AppContent: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-slate-100 font-sans text-slate-800">
-            <header className="bg-white shadow-md">
-                <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-                    <h1 className="text-2xl font-bold text-blue-600">{t('appTitle')}</h1>
-                    <div className="relative">
-                        <select
-                            value={language}
-                            onChange={(e) => setLanguage(e.target.value)}
-                            className="appearance-none bg-white border border-gray-300 rounded-md py-2 px-4 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                            {SUPPORTED_LANGUAGES.map(lang => (
-                                <option key={lang.code} value={lang.code}>{lang.name}</option>
-                            ))}
-                        </select>
-                         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                            <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                        </div>
-                    </div>
-                </div>
-            </header>
+            <div className="relative flex justify-center">
+                {/* Left Ad Banner */}
+                <aside className="sticky top-0 h-screen hidden xl:flex w-48 flex-shrink-0 items-center justify-center px-4" aria-label={t('adLabel')}>
+                    <AdBanner slot="4444444444" width="w-40" height="h-[600px]" size="160x600" label={t('adLabel')} />
+                </aside>
 
-            <div className="container mx-auto px-4 py-2">
-                <AdBanner slot="1111111111" width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
-            </div>
-
-            <main className="container mx-auto px-4 py-6">
-                 <div className="w-full max-w-4xl mx-auto">
-                    <div className="bg-white rounded-lg shadow p-6 md:p-8">
-                        <div className="mb-8">
-                            <label htmlFor="calculator-select" className="block text-sm font-medium text-gray-700 mb-2">{t('selectCalculator')}</label>
+                {/* Main Content */}
+                <div className="w-full max-w-4xl flex-grow">
+                    <header className="bg-white shadow-md">
+                        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+                            <h1 className="text-2xl font-bold text-blue-600">{t('appTitle')}</h1>
                             <div className="relative">
                                 <select
-                                    id="calculator-select"
-                                    value={activeCalculator}
-                                    onChange={(e) => setActiveCalculator(e.target.value as CalculatorType)}
-                                    className="w-full appearance-none bg-white border border-gray-300 rounded-md py-3 px-4 pr-10 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                    aria-label={t('selectCalculator')}
+                                    value={language}
+                                    onChange={(e) => setLanguage(e.target.value)}
+                                    className="appearance-none bg-white border border-gray-300 rounded-md py-2 px-4 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    aria-label={t('selectLanguage')}
                                 >
-                                    {navItems.map(item => (
-                                        <option key={item.key} value={item.key}>{item.label}</option>
+                                    {SUPPORTED_LANGUAGES.map(lang => (
+                                        <option key={lang.code} value={lang.code}>{lang.name}</option>
                                     ))}
                                 </select>
-                                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-700">
-                                    <svg className="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                                 </div>
                             </div>
                         </div>
-                        <hr className="mb-8" />
-                        {renderCalculator()}
-                    </div>
-                    <div className="mt-8">
-                        <AdBanner slot="2222222222" width="w-full" height="h-64" size="336x280" label={t('adLabel')} />
-                    </div>
-                </div>
-            </main>
+                    </header>
 
-            <footer className="container mx-auto px-4 py-8 text-center text-slate-500">
-                <AdBanner slot="3333333333" width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
-                <p className="mt-4 text-sm">&copy; 2024 Universal Financial Calculator. All rights reserved.</p>
-            </footer>
+                    <div className="px-4 py-2">
+                        <AdBanner slot="1111111111" width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
+                    </div>
+
+                    <main className="px-4 py-6">
+                        <div className="bg-white rounded-lg shadow p-6 md:p-8">
+                            <div className="mb-8">
+                                <label htmlFor="calculator-select" className="block text-sm font-medium text-gray-700 mb-2">{t('selectCalculator')}</label>
+                                <div className="relative">
+                                    <select
+                                        id="calculator-select"
+                                        value={activeCalculator}
+                                        onChange={(e) => setActiveCalculator(e.target.value as CalculatorType)}
+                                        className="w-full appearance-none bg-white border border-gray-300 rounded-md py-3 px-4 pr-10 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        aria-label={t('selectCalculator')}
+                                    >
+                                        {navItems.map(item => (
+                                            <option key={item.key} value={item.key}>{item.label}</option>
+                                        ))}
+                                    </select>
+                                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-700">
+                                        <svg className="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr className="mb-8" />
+                            {renderCalculator()}
+                        </div>
+                        <div className="mt-8">
+                            <AdBanner slot="2222222222" width="w-full" height="h-64" size="336x280" label={t('adLabel')} />
+                        </div>
+                    </main>
+
+                    <footer className="px-4 py-8 text-center text-slate-500">
+                        <AdBanner slot="3333333333" width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
+                        <p className="mt-4 text-sm">&copy; 2024 Universal Financial Calculator. All rights reserved.</p>
+                    </footer>
+                </div>
+
+                {/* Right Ad Banner */}
+                <aside className="sticky top-0 h-screen hidden xl:flex w-48 flex-shrink-0 items-center justify-center px-4" aria-label={t('adLabel')}>
+                    <AdBanner slot="5555555555" width="w-40" height="h-[600px]" size="160x600" label={t('adLabel')} />
+                </aside>
+            </div>
         </div>
     );
 };
