@@ -54,7 +54,7 @@ const LoanCalculator: React.FC = () => {
         <div>
             <h2 className="text-3xl font-bold mb-6 text-slate-800">{t('loanTitle')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6">
-                <InputField id="loanAmount" label={t('loanAmount')} value={formatForDisplay(loanAmount)} onChange={e => setLoanAmount(e.target.value)} unit={currency.symbol} />
+                <InputField id="loanAmount" label={t('loanAmount')} value={formatForDisplay(loanAmount)} onChange={e => setLoanAmount(parseForCalculation(e.target.value))} unit={currency.symbol} />
                 <InputField id="interestRate" label={t('annualRate')} value={interestRate} onChange={e => setInterestRate(parseForCalculation(e.target.value))} unit="%" />
                 <InputField id="loanTerm" label={t('loanTermInYears')} value={loanTerm} onChange={e => setLoanTerm(parseForCalculation(e.target.value))} unit={t('yearsUnit')} />
             </div>

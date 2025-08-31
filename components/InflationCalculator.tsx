@@ -49,7 +49,7 @@ const InflationCalculator: React.FC = () => {
         <div>
             <h2 className="text-3xl font-bold mb-6 text-slate-800">{t('inflationTitle')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6">
-                <InputField id="initialAmount" label={t('initialAmount')} value={formatForDisplay(initialAmount)} onChange={e => setInitialAmount(e.target.value)} unit={currency.symbol} />
+                <InputField id="initialAmount" label={t('initialAmount')} value={formatForDisplay(initialAmount)} onChange={e => setInitialAmount(parseForCalculation(e.target.value))} unit={currency.symbol} />
                 <InputField id="inflationRate" label={t('annualInflationRate')} value={inflationRate} onChange={e => setInflationRate(parseForCalculation(e.target.value))} unit="%" />
                 <InputField id="years" label={t('numberOfYears')} value={years} onChange={e => setYears(parseForCalculation(e.target.value))} />
             </div>

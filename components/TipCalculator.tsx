@@ -50,7 +50,7 @@ const TipCalculator: React.FC = () => {
         <div>
             <h2 className="text-3xl font-bold mb-6 text-slate-800">{t('tipTitle')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6">
-                <InputField id="billAmount" label={t('billAmount')} value={formatForDisplay(billAmount)} onChange={e => setBillAmount(e.target.value)} unit={currency.symbol} />
+                <InputField id="billAmount" label={t('billAmount')} value={formatForDisplay(billAmount)} onChange={e => setBillAmount(parseForCalculation(e.target.value))} unit={currency.symbol} />
                 <InputField id="tipPercentage" label={t('tipPercentage')} value={tipPercentage} onChange={e => setTipPercentage(parseForCalculation(e.target.value))} unit="%" />
                 <InputField id="numberOfPeople" label={t('numberOfPeople')} value={numberOfPeople} onChange={e => setNumberOfPeople(parseForCalculation(e.target.value))} />
             </div>

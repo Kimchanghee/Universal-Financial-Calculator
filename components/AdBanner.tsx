@@ -1,18 +1,37 @@
+import React, { useEffect } from 'react';
 
-import React from 'react';
+declare global {
+    interface Window {
+        adsbygoogle?: any[];
+    }
+}
 
 interface AdBannerProps {
     width: string;
     height: string;
     size: string;
     label: string;
+    slot: string;
 }
 
-const AdBanner: React.FC<AdBannerProps> = ({ width, height, size, label }) => {
+const AdBanner: React.FC<AdBannerProps> = ({ width, height, size, label, slot }) => {
+    useEffect(() => {
+        try {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+            console.error('AdSense error:', e);
+        }
+    }, []);
+
+    const [adWidth, adHeight] = size.split('x');
+
     return (
-        <div className={`${width} ${height} bg-gray-200 border-2 border-dashed border-gray-400 flex flex-col items-center justify-center rounded-lg`}>
-            <div className="text-gray-500 font-semibold">{label}</div>
-            <div className="text-gray-400 text-sm mt-1">{size}</div>
+        <div className={`flex justify-center items-center ${width} ${height} my-2`}>
+            <ins className="adsbygoogle"
+                 style={{ display: 'inline-block', width: `${adWidth}px`, height: `${adHeight}px`, backgroundColor: '#f0f0f0' }}
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot={slot}>
+            </ins>
         </div>
     );
 };
