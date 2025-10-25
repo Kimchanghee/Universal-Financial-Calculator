@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Main Homepage -->
+  <url>
+    <loc>https://your-domain.com/</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://your-domain.com/?lang=ko"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://your-domain.com/?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://your-domain.com/?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://your-domain.com/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://your-domain.com/?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://your-domain.com/?lang=th"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://your-domain.com/?lang=vi"/>
+  </url>
+
+  <!-- Compound Interest Calculator -->
+  <url>
+    <loc>https://your-domain.com/?calculator=compound-interest</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Simple Interest Calculator -->
+  <url>
+    <loc>https://your-domain.com/?calculator=simple-interest</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Savings Goal Calculator -->
+  <url>
+    <loc>https://your-domain.com/?calculator=savings-goal</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ROI Calculator -->
+  <url>
+    <loc>https://your-domain.com/?calculator=roi</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Loan Calculator -->
+  <url>
+    <loc>https://your-domain.com/?calculator=loan</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Retirement Calculator -->
+  <url>
+    <loc>https://your-domain.com/?calculator=retirement</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Inflation Calculator -->
+  <url>
+    <loc>https://your-domain.com/?calculator=inflation</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Tip Calculator -->
+  <url>
+    <loc>https://your-domain.com/?calculator=tip</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Break Even Point Calculator -->
+  <url>
+    <loc>https://your-domain.com/?calculator=break-even</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
