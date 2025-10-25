@@ -1,0 +1,80 @@
+{
+  "seo_optimization": {
+    "title_patterns": {
+      "compound_interest": "{calculator_name} Calculator | Free Financial Tools - Universal Financial Calculator",
+      "simple_interest": "{calculator_name} Calculator | Calculate Interest Easily - Universal Financial Calculator",
+      "savings_goal": "{calculator_name} Calculator | Plan Your Savings - Universal Financial Calculator",
+      "roi": "{calculator_name} Calculator | Investment Returns - Universal Financial Calculator",
+      "loan": "{calculator_name} Calculator | Mortgage & Loan Planning - Universal Financial Calculator",
+      "retirement": "{calculator_name} Calculator | Plan Your Future - Universal Financial Calculator",
+      "inflation": "{calculator_name} Calculator | Track Purchasing Power - Universal Financial Calculator",
+      "tip": "{calculator_name} Calculator | Easy Tip Calculation - Universal Financial Calculator",
+      "break_even": "{calculator_name} Calculator | Business Analysis - Universal Financial Calculator"
+    },
+    "meta_descriptions": {
+      "compound_interest": "Free compound interest calculator. Calculate investment growth with compound returns. Support for multiple currencies and languages. Instant results for financial planning.",
+      "simple_interest": "Calculate simple interest quickly and accurately. Free online tool for interest calculations. Multi-language support. Perfect for loans, savings, and investments.",
+      "savings_goal": "Plan your savings goals with our free calculator. Determine monthly contributions needed to reach your financial targets. Multi-currency support.",
+      "roi": "Calculate ROI (Return on Investment) instantly. Measure investment performance and profitability. Free tool with detailed analysis and charts.",
+      "loan": "Free loan and mortgage calculator. Calculate monthly payments, total interest, and amortization schedules. Support for various loan types.",
+      "retirement": "Plan your retirement savings with our comprehensive calculator. Estimate required savings and monthly contributions. Multi-currency support.",
+      "inflation": "Calculate the impact of inflation on your money. Track purchasing power over time. Free inflation calculator with historical data.",
+      "tip": "Quick and easy tip calculator. Calculate gratuity and split bills effortlessly. Support for custom tip percentages.",
+      "break_even": "Calculate break-even point for your business. Analyze fixed costs, variable costs, and pricing. Essential business planning tool."
+    },
+    "keywords": {
+      "primary": [
+        "financial calculator",
+        "interest calculator",
+        "investment calculator",
+        "savings calculator",
+        "loan calculator",
+        "retirement calculator",
+        "compound interest",
+        "ROI calculator"
+      ],
+      "secondary": [
+        "free financial tools",
+        "online calculator",
+        "financial planning",
+        "investment planning",
+        "money management",
+        "personal finance",
+        "financial education",
+        "wealth building"
+      ],
+      "long_tail": [
+        "how to calculate compound interest",
+        "best retirement calculator online",
+        "free loan payment calculator",
+        "calculate investment returns",
+        "savings goal planning tool",
+        "inflation impact calculator",
+        "business break even analysis",
+        "tip calculator with split bill"
+      ]
+    }
+  },
+  "technical_seo": {
+    "performance": {
+      "target_metrics": {
+        "first_contentful_paint": "< 1.5s",
+        "largest_contentful_paint": "< 2.5s",
+        "cumulative_layout_shift": "< 0.1",
+        "time_to_interactive": "< 3.5s"
+      }
+    },
+    "mobile_optimization": {
+      "viewport": "width=device-width, initial-scale=1.0",
+      "touch_friendly": true,
+      "responsive_images": true
+    },
+    "structured_data_types": [
+      "WebApplication",
+      "SoftwareApplication",
+      "FAQPage",
+      "HowTo",
+      "BreadcrumbList"
+    ]
+  }
+}
