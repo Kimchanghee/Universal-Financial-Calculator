@@ -12,12 +12,12 @@ interface LocalizationContextType {
 const LocalizationContext = createContext<LocalizationContextType | undefined>(undefined);
 
 export const LocalizationProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [language, setLanguageState] = useState<string>('en');
+    const [language, setLanguageState] = useState<string>('ko');
     const [translations, setTranslations] = useState<Translations>({});
 
     useEffect(() => {
         const browserLang = navigator.language.split('-')[0];
-        const defaultLang = SUPPORTED_LANGUAGES.some(lang => lang.code === browserLang) ? browserLang : 'en';
+        const defaultLang = SUPPORTED_LANGUAGES.some(lang => lang.code === browserLang) ? browserLang : 'ko';
         setLanguageState(defaultLang);
     }, []);
 
