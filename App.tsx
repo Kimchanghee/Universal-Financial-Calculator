@@ -165,7 +165,8 @@ const AppContent: React.FC = () => {
                     <footer className="px-6 py-10 text-center">
                         <AdBanner slot="3333333333" width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
                         <div className="mt-6 space-y-2">
-                            <p className="text-sm font-semibold text-slate-600">&copy; 2024 Universal Financial Calculator. All rights reserved.</p>
+                            <p className="text-sm font-semibold text-slate-600">&copy; {new Date().getFullYear()} Finora. All rights reserved.</p>
+                            <p className="text-xs text-slate-400 font-medium">Made with ❤️ by withYM</p>
                             <p className="text-xs text-slate-400 font-medium">Empowering financial decisions worldwide 🌍</p>
                         </div>
                     </footer>
