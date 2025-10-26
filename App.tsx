@@ -89,7 +89,7 @@ const AppContent: React.FC = () => {
     ], [t]);
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 font-sans text-slate-800">
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 font-['Inter',sans-serif] text-slate-800">
             <div className="relative flex justify-center">
                 {/* Left Ad Banner */}
                 <aside className="sticky top-0 h-screen hidden xl:flex w-48 flex-shrink-0 items-center justify-center px-4" aria-label={t('adLabel')}>
@@ -97,23 +97,30 @@ const AppContent: React.FC = () => {
                 </aside>
 
                 {/* Main Content */}
-                <div className="w-full max-w-4xl flex-grow">
-                    <header className="bg-white/80 backdrop-blur-md shadow-lg border-b border-gray-200/50">
-                        <div className="container mx-auto px-4 py-5 flex justify-between items-center">
-                            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('appTitle')}</h1>
+                <div className="w-full max-w-5xl flex-grow">
+                    <header className="bg-white/90 backdrop-blur-xl shadow-2xl border-b-2 border-blue-100/50 sticky top-0 z-50">
+                        <div className="container mx-auto px-6 py-6 flex justify-between items-center">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                                    <span className="text-2xl">💎</span>
+                                </div>
+                                <h1 className="text-3xl font-extrabold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                                    {t('appTitle')}
+                                </h1>
+                            </div>
                             <div className="relative">
                                 <select
                                     value={language}
                                     onChange={(e) => setLanguage(e.target.value)}
-                                    className="appearance-none bg-white border-2 border-gray-200 hover:border-blue-400 rounded-lg py-2 px-4 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 shadow-sm hover:shadow-md"
+                                    className="appearance-none bg-gradient-to-r from-white to-blue-50 border-2 border-slate-200 hover:border-blue-400 rounded-xl py-2.5 px-5 pr-10 font-semibold focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300 shadow-sm hover:shadow-lg"
                                     aria-label={t('selectLanguage')}
                                 >
                                     {SUPPORTED_LANGUAGES.map(lang => (
                                         <option key={lang.code} value={lang.code}>{lang.name}</option>
                                     ))}
                                 </select>
-                                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-blue-600">
+                                    <svg className="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                                 </div>
                             </div>
                         </div>
@@ -123,28 +130,31 @@ const AppContent: React.FC = () => {
                         <AdBanner slot="1111111111" width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
                     </div>
 
-                    <main className="px-4 py-6">
-                        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200/50 p-6 md:p-8 transition-all duration-300 hover:shadow-2xl">
+                    <main className="px-6 py-8">
+                        <div className="bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl border-2 border-slate-200/50 p-8 md:p-10 transition-all duration-500 hover:shadow-3xl hover:border-blue-200/50">
                             <div className="mb-8">
-                                <label htmlFor="calculator-select" className="block text-sm font-semibold text-gray-700 mb-3">{t('selectCalculator')}</label>
-                                <div className="relative">
+                                <label htmlFor="calculator-select" className="block text-sm font-bold text-slate-700 mb-3 uppercase tracking-wide flex items-center gap-2">
+                                    <span className="text-lg">🧮</span>
+                                    {t('selectCalculator')}
+                                </label>
+                                <div className="relative group">
                                     <select
                                         id="calculator-select"
                                         value={activeCalculator}
                                         onChange={(e) => setActiveCalculator(e.target.value as CalculatorType)}
-                                        className="w-full appearance-none bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-gray-200 hover:border-blue-400 rounded-xl py-3 px-4 pr-10 text-lg font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 shadow-sm hover:shadow-md"
+                                        className="w-full appearance-none bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 border-2 border-slate-200 hover:border-blue-400 rounded-2xl py-4 px-5 pr-12 text-lg font-semibold focus:outline-none focus:ring-4 focus:ring-blue-500/30 focus:border-blue-500 transition-all duration-300 shadow-md hover:shadow-xl cursor-pointer"
                                         aria-label={t('selectCalculator')}
                                     >
                                         {navItems.map(item => (
                                             <option key={item.key} value={item.key}>{item.label}</option>
                                         ))}
                                     </select>
-                                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-blue-600">
-                                        <svg className="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-blue-600 group-hover:text-indigo-600 transition-colors">
+                                        <svg className="fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                                     </div>
                                 </div>
                             </div>
-                            <hr className="mb-8 border-gray-200" />
+                            <div className="h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mb-8"></div>
                             {renderCalculator()}
                         </div>
                         <div className="mt-8">
@@ -152,10 +162,12 @@ const AppContent: React.FC = () => {
                         </div>
                     </main>
 
-                    <footer className="px-4 py-8 text-center text-slate-500">
+                    <footer className="px-6 py-10 text-center">
                         <AdBanner slot="3333333333" width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
-                        <p className="mt-4 text-sm font-medium">&copy; 2024 Universal Financial Calculator. All rights reserved.</p>
-                        <p className="mt-2 text-xs text-slate-400">Empowering financial decisions worldwide</p>
+                        <div className="mt-6 space-y-2">
+                            <p className="text-sm font-semibold text-slate-600">&copy; 2024 Universal Financial Calculator. All rights reserved.</p>
+                            <p className="text-xs text-slate-400 font-medium">Empowering financial decisions worldwide 🌍</p>
+                        </div>
                     </footer>
                 </div>
 

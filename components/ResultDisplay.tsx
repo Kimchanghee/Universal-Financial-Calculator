@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface ResultDisplayProps {
@@ -11,14 +10,33 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ results, language }) => {
         return null;
     }
 
+    const icons = ['💰', '📊', '✨'];
+
     return (
-        <div className="mt-8 p-6 bg-blue-50 rounded-lg border border-blue-200">
-            {results.map((result, index) => (
-                <div key={index} className={`flex justify-between items-center py-3 ${index < results.length - 1 ? 'border-b border-blue-100' : ''}`}>
-                    <span className="text-base text-gray-600">{result.label}</span>
-                    <span className="text-xl font-bold text-blue-700">{result.value}</span>
-                </div>
-            ))}
+        <div className="mt-8 p-8 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl border-2 border-blue-200/50 shadow-xl backdrop-blur-sm animate-fadeIn">
+            <div className="mb-4">
+                <h3 className="text-lg font-bold text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text flex items-center gap-2">
+                    <span className="text-2xl">📈</span>
+                    Results
+                </h3>
+            </div>
+            <div className="space-y-4">
+                {results.map((result, index) => (
+                    <div
+                        key={index}
+                        className="flex justify-between items-center p-4 bg-white/70 backdrop-blur-md rounded-xl border border-blue-100/50 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300"
+                        style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                        <div className="flex items-center gap-3">
+                            <span className="text-2xl">{icons[index % icons.length]}</span>
+                            <span className="text-base font-semibold text-slate-700">{result.label}</span>
+                        </div>
+                        <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                            {result.value}
+                        </span>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
