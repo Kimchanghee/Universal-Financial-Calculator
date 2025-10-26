@@ -1,12 +1,19 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+<h1>📈 Finora</h1>
+<p><strong>스마트 금융 계산기</strong></p>
+<p>복리 계산, 투자 수익률, 대출 상환, 은퇴 설계 등 다양한 재무 계산을 지원하는 세련된 금융 계산기</p>
 </div>
 
-# Run and deploy your AI Studio app
+---
 
-This contains everything you need to run your app locally.
+## ✨ Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1qIz6wFAGP8_g0LoIXSVlgBOzruZ1s5vC
+- 📊 **9가지 금융 계산기**: 복리, 단리, 저축 목표, ROI, 대출, 은퇴 자금, 인플레이션, 팁, 손익분기점
+- 🌍 **다국어 지원**: 한국어, 영어, 일본어, 중국어, 스페인어, 포르투갈어, 태국어, 베트남어
+- 🎨 **세련된 UI**: 붉은색 계열의 현대적인 디자인
+- 📱 **반응형 디자인**: 모바일, 태블릿, 데스크톱 모두 지원
+
+---
 
 ## Run Locally
 
