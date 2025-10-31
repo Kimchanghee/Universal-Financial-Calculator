@@ -1,57 +1,96 @@
 {
   "seo_optimization": {
     "title_patterns": {
-      "compound_interest": "{calculator_name} Calculator | Free Financial Tools - Universal Financial Calculator",
-      "simple_interest": "{calculator_name} Calculator | Calculate Interest Easily - Universal Financial Calculator",
-      "savings_goal": "{calculator_name} Calculator | Plan Your Savings - Universal Financial Calculator",
-      "roi": "{calculator_name} Calculator | Investment Returns - Universal Financial Calculator",
-      "loan": "{calculator_name} Calculator | Mortgage & Loan Planning - Universal Financial Calculator",
-      "retirement": "{calculator_name} Calculator | Plan Your Future - Universal Financial Calculator",
-      "inflation": "{calculator_name} Calculator | Track Purchasing Power - Universal Financial Calculator",
-      "tip": "{calculator_name} Calculator | Easy Tip Calculation - Universal Financial Calculator",
-      "break_even": "{calculator_name} Calculator | Business Analysis - Universal Financial Calculator"
+      "compound_interest": "{calculator_name} Calculator | Free Financial Tools - Finora 복리 계산기",
+      "simple_interest": "{calculator_name} Calculator | Calculate Interest Easily - Finora 단리 계산기",
+      "savings_goal": "{calculator_name} Calculator | Plan Your Savings - Finora 저축 목표 계산기",
+      "roi": "{calculator_name} Calculator | Investment Returns - Finora ROI 계산기",
+      "loan": "{calculator_name} Calculator | Mortgage & Loan Planning - Finora 대출 계산기",
+      "retirement": "{calculator_name} Calculator | Plan Your Future - Finora 은퇴 자금 계산기",
+      "inflation": "{calculator_name} Calculator | Track Purchasing Power - Finora 인플레이션 계산기",
+      "tip": "{calculator_name} Calculator | Easy Tip Calculation - Finora 팁 계산기",
+      "break_even": "{calculator_name} Calculator | Business Analysis - Finora 손익분기점 계산기"
     },
     "meta_descriptions": {
-      "compound_interest": "Free compound interest calculator. Calculate investment growth with compound returns. Support for multiple currencies and languages. Instant results for financial planning.",
-      "simple_interest": "Calculate simple interest quickly and accurately. Free online tool for interest calculations. Multi-language support. Perfect for loans, savings, and investments.",
-      "savings_goal": "Plan your savings goals with our free calculator. Determine monthly contributions needed to reach your financial targets. Multi-currency support.",
-      "roi": "Calculate ROI (Return on Investment) instantly. Measure investment performance and profitability. Free tool with detailed analysis and charts.",
-      "loan": "Free loan and mortgage calculator. Calculate monthly payments, total interest, and amortization schedules. Support for various loan types.",
-      "retirement": "Plan your retirement savings with our comprehensive calculator. Estimate required savings and monthly contributions. Multi-currency support.",
-      "inflation": "Calculate the impact of inflation on your money. Track purchasing power over time. Free inflation calculator with historical data.",
-      "tip": "Quick and easy tip calculator. Calculate gratuity and split bills effortlessly. Support for custom tip percentages.",
-      "break_even": "Calculate break-even point for your business. Analyze fixed costs, variable costs, and pricing. Essential business planning tool."
+      "compound_interest": "무료 복리 계산기 - 투자 성장을 복리로 계산하세요. Free compound interest calculator. 한국어, English, 日本語 등 8개 언어 지원. 실시간 금융 계획 도구. 엑셀 대체 무료 도구.",
+      "simple_interest": "단리 계산을 빠르고 정확하게. Calculate simple interest quickly. 대출, 저축, 투자에 완벽한 무료 온라인 도구. 다국어 지원.",
+      "savings_goal": "저축 목표를 계획하세요. Plan your savings goals. 목표 금액 달성을 위한 월 납입금 계산. 무료 저축 계산기.",
+      "roi": "투자 수익률(ROI)을 즉시 계산. Calculate ROI instantly. 투자 성과와 수익성 측정. 상세 분석과 차트 제공. 무료 도구.",
+      "loan": "무료 대출 및 모기지 계산기. Free loan and mortgage calculator. 월 상환금, 총 이자, 상환 일정 계산. 다양한 대출 유형 지원.",
+      "retirement": "은퇴 저축을 계획하세요. Plan your retirement savings. 필요 저축액과 월 납입금 추정. 노후 자금 설계 도구.",
+      "inflation": "인플레이션이 돈에 미치는 영향 계산. Calculate inflation impact. 시간에 따른 구매력 추적. 물가 상승률 계산기.",
+      "tip": "빠르고 쉬운 팁 계산기. Quick tip calculator. 팁과 더치페이 계산. 맞춤 팁 비율 지원.",
+      "break_even": "사업의 손익분기점 계산. Calculate break-even point. 고정비, 변동비, 가격 분석. 필수 사업 계획 도구."
     },
     "keywords": {
       "primary": [
-        "financial calculator",
-        "interest calculator",
-        "investment calculator",
-        "savings calculator",
-        "loan calculator",
-        "retirement calculator",
-        "compound interest",
-        "ROI calculator"
+        "finora", "피노라", "금융계산기", "금융 계산기", "재무계산기", "재무 계산기",
+        "financial calculator", "finance calculator",
+        "복리계산기", "복리 계산", "이자계산기", "이자 계산",
+        "interest calculator", "compound interest", "compound interest calculator",
+        "투자계산기", "투자 계산", "investment calculator",
+        "저축계산기", "savings calculator", "saving calculator",
+        "대출계산기", "loan calculator", "mortgage calculator",
+        "은퇴계산기", "retirement calculator", "retirment calculator",
+        "ROI calculator", "ROI 계산기", "return on investment"
       ],
       "secondary": [
-        "free financial tools",
-        "online calculator",
-        "financial planning",
-        "investment planning",
-        "money management",
-        "personal finance",
-        "financial education",
-        "wealth building"
+        "무료계산기", "온라인계산기", "웹계산기", "엑셀대체",
+        "free financial tools", "online calculator", "web calculator",
+        "재테크", "재테크계산기", "자산관리", "자산설계", "포트폴리오",
+        "financial planning", "investment planning", "money management",
+        "personal finance", "wealth management", "portfolio management",
+        "financial education", "wealth building", "money calculator",
+        "複利計算", "複利計算機", "金融計算", "金融計算機",
+        "calculadora financiera", "金融计算器", "calculadora financeira"
       ],
       "long_tail": [
-        "how to calculate compound interest",
-        "best retirement calculator online",
-        "free loan payment calculator",
-        "calculate investment returns",
-        "savings goal planning tool",
-        "inflation impact calculator",
-        "business break even analysis",
-        "tip calculator with split bill"
+        "복리 계산 방법", "복리 이자 계산법", "how to calculate compound interest",
+        "은퇴 자금 얼마", "은퇴 자금 얼마나 필요", "how much do i need to retire",
+        "대출 이자 계산", "대출 상환액 계산", "loan payment calculator",
+        "투자 수익 계산", "투자 수익률 계산법", "calculate investment returns",
+        "저축 목표 달성", "savings goal planning tool",
+        "물가 상승률 계산", "인플레이션 영향", "inflation impact calculator",
+        "손익분기점 분석", "business break even analysis",
+        "팁 계산 더치페이", "tip calculator with split bill",
+        "best retirement calculator online", "free loan payment calculator",
+        "무료 금융 도구", "무료 재무 계산기", "free financial calculator online",
+        "엑셀 없이 금융 계산", "모바일 금융 계산기", "mobile financial calculator",
+        "복리 vs 단리", "compound vs simple interest",
+        "은퇴 준비 계산기", "노후 자금 계산", "retirement savings estimator",
+        "주택담보대출 계산", "모기지 계산", "mortgage payment calculator",
+        "투자 포트폴리오 계산", "investment portfolio calculator"
+      ],
+      "question_based_aeo": [
+        "복리 계산기 사용법", "how to use compound interest calculator",
+        "은퇴 자금 얼마면 충분", "how much money do i need to retire",
+        "대출 이자는 어떻게 계산", "how is loan interest calculated",
+        "투자 수익률이란", "what is ROI",
+        "복리 이자 계산 공식", "compound interest formula",
+        "은퇴 후 필요한 돈", "money needed for retirement",
+        "대출 상환 기간 계산", "how to calculate loan term",
+        "인플레이션이 뭔가요", "what is inflation",
+        "손익분기점이란", "what is break even point",
+        "팁은 얼마 주나요", "how much to tip"
+      ],
+      "typos_and_variations": [
+        "금융케산기", "재무케산기", "게산기",
+        "finacial calculator", "financial calculater", "financia calculator",
+        "compund interest", "compound intrest", "compount interest",
+        "morgage calculator", "mortage calculator",
+        "retirment calculator", "retiremnt calculator",
+        "saving calculator", "savng calculator",
+        "inflaton calculator", "infation calculator"
+      ],
+      "multilingual": [
+        "複利計算機", "複利計算器", "复利计算器",
+        "ローン計算", "住宅ローン計算機",
+        "退職金計算", "年金計算機",
+        "calculadora de interés compuesto", "calculadora de préstamo",
+        "calculadora de jubilación",
+        "calculadora de juros compostos", "calculadora de empréstimo",
+        "เครื่องคำนวณดอกเบี้ยทบต้น", "เครื่องคิดเลขทางการเงิน",
+        "máy tính lãi kép", "máy tính tài chính"
       ]
     }
   },
