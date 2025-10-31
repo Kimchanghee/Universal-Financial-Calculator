@@ -1,43 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- SEO Meta Tags - Title, Description, Keywords will be managed by React -->
-    <title>Finora - 스마트 금융 계산기</title>
-    <meta name="description" content="Finora는 복리 계산, 투자 수익률, 대출 상환, 은퇴 설계 등 다양한 재무 계산을 지원하는 세련된 금융 계산기입니다. 당신의 재무 목표를 달성하세요." />
-    <meta name="keywords" content="finora, 금융계산기, 재무계산기, 복리계산, 투자수익률, ROI, 대출계산, 은퇴설계, financial calculator" />
 
-    <!-- Canonical URL - Managed by React -->
-    <link rel="canonical" href="https://example.com" />
+    <!-- Primary SEO Meta Tags -->
+    <title>Finora - 스마트 금융 계산기 | 복리, ROI, 대출, 은퇴 설계 무료 도구</title>
+    <meta name="title" content="Finora - 스마트 금융 계산기 | 복리, ROI, 대출, 은퇴 설계 무료 도구" />
+    <meta name="description" content="Finora는 복리 계산, 투자 수익률, 대출 상환, 은퇴 설계 등 다양한 재무 계산을 지원하는 세련된 금융 계산기입니다. 8개 언어 지원으로 전 세계 어디서나 무료로 사용 가능합니다." />
+    <meta name="keywords" content="finora, 금융계산기, 재무계산기, 복리계산, 투자수익률, ROI, 대출계산, 은퇴설계, financial calculator, compound interest, retirement planning, loan calculator, savings goal" />
+    <meta name="author" content="withYM" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+
+    <!-- Multi-language Support - hreflang Tags -->
+    <link rel="alternate" hreflang="ko" href="https://example.com/?lang=ko" />
+    <link rel="alternate" hreflang="en" href="https://example.com/?lang=en" />
+    <link rel="alternate" hreflang="ja" href="https://example.com/?lang=ja" />
+    <link rel="alternate" hreflang="es" href="https://example.com/?lang=es" />
+    <link rel="alternate" hreflang="zh" href="https://example.com/?lang=zh" />
+    <link rel="alternate" hreflang="pt" href="https://example.com/?lang=pt" />
+    <link rel="alternate" hreflang="th" href="https://example.com/?lang=th" />
+    <link rel="alternate" hreflang="vi" href="https://example.com/?lang=vi" />
+    <link rel="alternate" hreflang="x-default" href="https://example.com/" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://example.com/" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://example.com/">
-    <meta property="og:title" content="Finora - 스마트 금융 계산기">
-    <meta property="og:description" content="복리 계산, 투자 수익률, 대출 상환, 은퇴 설계 등 다양한 재무 계산을 지원하는 세련된 금융 계산기">
-    <meta property="og:image" content="https://storage.googleapis.com/aistudio-project-files/assets/og-image.png">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://example.com/" />
+    <meta property="og:site_name" content="Finora" />
+    <meta property="og:title" content="Finora - 스마트 금융 계산기 | 복리, ROI, 대출, 은퇴 설계" />
+    <meta property="og:description" content="복리 계산, 투자 수익률, 대출 상환, 은퇴 설계 등 다양한 재무 계산을 지원하는 세련된 금융 계산기. 8개 언어 지원, 무료 사용" />
+    <meta property="og:image" content="https://storage.googleapis.com/aistudio-project-files/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Finora Financial Calculator" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="ja_JP" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta property="og:locale:alternate" content="th_TH" />
+    <meta property="og:locale:alternate" content="vi_VN" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://example.com/">
-    <meta property="twitter:title" content="Finora - 스마트 금융 계산기">
-    <meta property="twitter:description" content="복리 계산, 투자 수익률, 대출 상환, 은퇴 설계 등 다양한 재무 계산을 지원하는 세련된 금융 계산기">
-    <meta property="twitter:image" content="https://storage.googleapis.com/aistudio-project-files/assets/og-image.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://example.com/" />
+    <meta name="twitter:title" content="Finora - 스마트 금융 계산기" />
+    <meta name="twitter:description" content="복리 계산, 투자 수익률, 대출 상환, 은퇴 설계 등 다양한 재무 계산을 지원하는 세련된 금융 계산기" />
+    <meta name="twitter:image" content="https://storage.googleapis.com/aistudio-project-files/assets/og-image.png" />
+    <meta name="twitter:image:alt" content="Finora Financial Calculator" />
+    <meta name="twitter:creator" content="@withYM" />
+
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#dc2626" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Finora" />
+    <meta name="application-name" content="Finora" />
+    <meta name="msapplication-TileColor" content="#dc2626" />
+    <meta name="format-detection" content="telephone=no" />
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
      crossorigin="anonymous"></script>
 
-    <!-- Structured Data - Managed by React -->
-    <script id="structured-data" type="application/ld+json"></script>
+    <!-- Structured Data - Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://example.com/#webapp",
+          "name": "Finora",
+          "alternateName": "Finora Financial Calculator",
+          "url": "https://example.com/",
+          "description": "무료 금융 계산기 도구 - 복리, 단리, ROI, 대출, 은퇄 설계, 인플레이션 계산 등을 지원합니다. 8개 언어로 제공됩니다.",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "withYM"
+          },
+          "inLanguage": ["ko", "en", "ja", "es", "zh", "pt", "th", "vi"],
+          "featureList": [
+            "복리 계산기",
+            "단리 계산기",
+            "저축 목표 계산기",
+            "ROI 계산기",
+            "대출/모기지 계산기",
+            "은퇴 자금 계산기",
+            "인플레이션 계산기",
+            "팁 계산기",
+            "손익분기점 계산기"
+          ],
+          "screenshot": "https://storage.googleapis.com/aistudio-project-files/assets/og-image.png"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://example.com/#organization",
+          "name": "withYM",
+          "url": "https://example.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://example.com/favicon.svg"
+          },
+          "sameAs": []
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://example.com/#website",
+          "url": "https://example.com/",
+          "name": "Finora",
+          "description": "스마트 금융 계산기",
+          "publisher": {
+            "@id": "https://example.com/#organization"
+          },
+          "inLanguage": "ko"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://example.com/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com/"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
   <script type="importmap">
