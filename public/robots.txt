@@ -1,19 +1,45 @@
-# Universal Financial Calculator - Robots.txt
+# Finora Financial Calculator - Robots.txt
+# Optimized for SEO and AEO (Answer Engine Optimization)
 
 # Allow all search engines to crawl everything
 User-agent: *
 Allow: /
+Crawl-delay: 0
 
 # Specific rules for major search engines
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
 
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 0
 
-# Allow AI crawlers (for ChatGPT, Claude, Gemini, etc.)
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Sogou
+Allow: /
+
+User-agent: Exabot
+Allow: /
+
+# AI Crawlers - Allow for AEO (Answer Engine Optimization)
 User-agent: GPTBot
 Allow: /
 
@@ -32,5 +58,33 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
-# Sitemap location
+User-agent: Applebot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+# Facebook & Social Media Crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Sitemap locations
 Sitemap: https://your-domain.com/sitemap.xml
+
+# Host directive (optional - specify your preferred domain)
+# Host: https://your-domain.com
