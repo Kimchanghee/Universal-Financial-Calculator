@@ -1,5 +1,7 @@
 {
     "appTitle": "Finora",
+    "selectLanguage": "เลือกภาษา",
+    "results": "ผลลัพธ์",
     "compoundInterestTitle": "เครื่องคำนวณดอกเบี้ยทบต้น",
     "simpleInterestTitle": "เครื่องคำนวณดอกเบี้ยอย่างง่าย",
     "savingsGoalTitle": "เครื่องคำนวณเป้าหมายการออม",

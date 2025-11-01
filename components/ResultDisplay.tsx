@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocalization } from '../hooks/useLocalization';
 
 interface ResultDisplayProps {
     results: Array<{ label: string; value: string }>;
@@ -6,6 +7,7 @@ interface ResultDisplayProps {
 }
 
 const ResultDisplay: React.FC<ResultDisplayProps> = ({ results, language }) => {
+    const { t } = useLocalization();
     if (results.length === 0) {
         return null;
     }
@@ -17,7 +19,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ results, language }) => {
             <div className="mb-4">
                 <h3 className="text-lg font-bold text-transparent bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text flex items-center gap-2">
                     <span className="text-2xl">📈</span>
-                    Results
+                    {t('results')}
                 </h3>
             </div>
             <div className="space-y-4">
