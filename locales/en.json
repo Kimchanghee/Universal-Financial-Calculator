@@ -1,5 +1,7 @@
 {
     "appTitle": "Finora",
+    "selectLanguage": "Select Language",
+    "results": "Results",
     "compoundInterestTitle": "Compound Interest Calculator",
     "simpleInterestTitle": "Simple Interest Calculator",
     "savingsGoalTitle": "Savings Goal Calculator",

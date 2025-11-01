@@ -1,5 +1,7 @@
 {
     "appTitle": "Finora",
+    "selectLanguage": "言語を選択",
+    "results": "計算結果",
     "compoundInterestTitle": "複利計算機",
     "simpleInterestTitle": "単利計算機",
     "savingsGoalTitle": "貯蓄目標計算機",

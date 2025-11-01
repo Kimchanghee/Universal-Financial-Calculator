@@ -1,5 +1,7 @@
 {
     "appTitle": "Finora",
+    "selectLanguage": "언어 선택",
+    "results": "계산 결과",
     "compoundInterestTitle": "복리 계산기",
     "simpleInterestTitle": "단리 계산기",
     "savingsGoalTitle": "저축 목표 계산기",
