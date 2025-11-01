@@ -49,17 +49,24 @@ export const LocalizationProvider: React.FC<{ children: React.ReactNode }> = ({ 
         loadTranslations();
     }, [language]);
 
-    const setLanguage = (lang: string) => {
+    const setLanguage = useCallback((lang: string) => {
         setLanguageState(lang);
-    };
+    }, []);
     
     const t = useCallback((key: string): string => {
         return translations[key] || key;
     }, [translations]);
 
+    const value = useMemo(() => ({
+        language,
+        setLanguage,
+        translations,
+        t,
+    }), [language, translations, t]);
+
     // FIX: Replaced JSX with React.createElement to be compatible with .ts file extension.
     return React.createElement(LocalizationContext.Provider, {
-        value: { language, setLanguage, translations, t }
+        value
     }, children);
 };
 
