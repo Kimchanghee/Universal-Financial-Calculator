@@ -23,6 +23,14 @@ export enum CalculatorType {
     BREAK_EVEN = 'break_even',
 }
 
+export enum PageType {
+    CALCULATORS = 'calculators',
+    ABOUT_US = 'about',
+    PRIVACY_POLICY = 'privacy',
+    CONTACT_US = 'contact',
+    FAQ = 'faq',
+}
+
 export const CURRENCY_MAP: { [key: string]: { code: string; symbol: string } } = {
     en: { code: 'USD', symbol: '$' },
     ko: { code: 'KRW', symbol: '₩' },
