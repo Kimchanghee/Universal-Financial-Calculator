@@ -9,6 +9,16 @@ export const SUPPORTED_LANGUAGES: Language[] = [
     { code: 'pt', name: 'Português' },
     { code: 'th', name: 'ไทย' },
     { code: 'vi', name: 'Tiếng Việt' },
+    { code: 'fr', name: 'Français' },
+    { code: 'de', name: 'Deutsch' },
+    { code: 'it', name: 'Italiano' },
+    { code: 'ru', name: 'Русский' },
+    { code: 'ar', name: 'العربية' },
+    { code: 'hi', name: 'हिन्दी' },
+    { code: 'id', name: 'Bahasa Indonesia' },
+    { code: 'nl', name: 'Nederlands' },
+    { code: 'tr', name: 'Türkçe' },
+    { code: 'pl', name: 'Polski' },
 ];
 
 export enum CalculatorType {
@@ -40,4 +50,14 @@ export const CURRENCY_MAP: { [key: string]: { code: string; symbol: string } } =
     pt: { code: 'BRL', symbol: 'R$' },
     th: { code: 'THB', symbol: '฿' },
     vi: { code: 'VND', symbol: '₫' },
+    fr: { code: 'EUR', symbol: '€' },
+    de: { code: 'EUR', symbol: '€' },
+    it: { code: 'EUR', symbol: '€' },
+    ru: { code: 'RUB', symbol: '₽' },
+    ar: { code: 'SAR', symbol: 'ر.س' },
+    hi: { code: 'INR', symbol: '₹' },
+    id: { code: 'IDR', symbol: 'Rp' },
+    nl: { code: 'EUR', symbol: '€' },
+    tr: { code: 'TRY', symbol: '₺' },
+    pl: { code: 'PLN', symbol: 'zł' },
 };
