@@ -23,14 +23,14 @@ export const LocalizationProvider: React.FC<{ children: React.ReactNode }> = ({ 
     useEffect(() => {
         const loadTranslations = async () => {
             try {
-                const response = await fetch(`/locales/${language}.json`);
+                const response = await fetch(`/locales/${language}.json?v=${Date.now()}`);
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 const data = await response.json();
                 setTranslations(data);
             } catch (error) {
                 console.error(`Could not load translations for ${language}`, error);
                 try {
-                    const response = await fetch('/locales/en.json');
+                    const response = await fetch(`/locales/en.json?v=${Date.now()}`);
                     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                     const data = await response.json();
                     setTranslations(data);
