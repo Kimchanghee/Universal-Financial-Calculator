@@ -19,6 +19,8 @@ export const SUPPORTED_LANGUAGES: Language[] = [
     { code: 'nl', name: 'Nederlands' },
     { code: 'tr', name: 'Türkçe' },
     { code: 'pl', name: 'Polski' },
+    { code: 'sv', name: 'Svenska' },
+    { code: 'bn', name: 'বাংলা' },
 ];
 
 export enum CalculatorType {
@@ -60,4 +62,6 @@ export const CURRENCY_MAP: { [key: string]: { code: string; symbol: string } } =
     nl: { code: 'EUR', symbol: '€' },
     tr: { code: 'TRY', symbol: '₺' },
     pl: { code: 'PLN', symbol: 'zł' },
+    sv: { code: 'SEK', symbol: 'kr' },
+    bn: { code: 'BDT', symbol: '৳' },
 };
