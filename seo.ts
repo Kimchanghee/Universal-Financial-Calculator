@@ -513,6 +513,174 @@ const seoConfig: Record<string, Record<string, SeoData>> = {
           keywords: 'máy tính điểm hòa vốn, phân tích điểm hòa vốn, máy tính kinh doanh, chi phí cố định, chi phí biến đổi, phân tích lợi nhuận, máy tính BEP, phân tích chi phí-sản lượng-lợi nhuận, máy tính khởi nghiệp, khả năng sinh lời của doanh nghiệp',
           structuredData: createStructuredData('Máy tính Điểm hòa vốn', 'Tìm điểm hòa vốn cho doanh nghiệp của bạn.', 'vi')
       }
+  },
+  sv: {
+      default: {
+          title: 'Universell Finanskalkylator | Gratis & Noggrann Online-verktyg',
+          description: 'Beräkna ränta på ränta, enkel ränta, sparmål och ROI med vår gratis flerspråkiga finanskalkylator. Lätt att använda för alla dina behov av ekonomisk planering.',
+          keywords: 'finanskalkylator, räntekalkylator, investeringskalkylator, sparkalkylator, ROI-kalkylator, gratis finansiella verktyg, online-kalkylator, penningkalkylator, verktyg för finansiell planering, bolånekalkylator, lånekalkylator',
+          structuredData: createStructuredData('Universell Finanskalkylator', 'En omfattande finanskalkylator som stöder ränta på ränta, enkel ränta, sparmål och ROI-beräkningar.', 'sv')
+      },
+      [CalculatorType.COMPOUND_INTEREST]: {
+          title: 'Räntekalkylator | Framtida värde investeringstillväxt',
+          description: 'Beräkna enkelt det framtida värdet av din investering med vår räntekalkylator. Se hur dina pengar kan växa över tid med huvudbelopp, ränta, tid och insättningar.',
+          keywords: 'räntekalkylator, framtida värdekalkylator, investeringstillväxt, pensionssparande, finansiell planering, sparkalkylator, beräkna ränta på ränta, investeringsavkastning, sammansatt avkastning',
+          structuredData: createStructuredData('Räntekalkylator', 'Beräkna enkelt det framtida värdet av din investering.', 'sv')
+      }
+  },
+  bn: {
+      default: {
+          title: 'সার্বজনীন আর্থিক ক্যালকুলেটর | বিনামূল্যে ও নির্ভুল অনলাইন টুল',
+          description: 'আমাদের বিনামূল্যে বহুভাষিক আর্থিক ক্যালকুলেটর দিয়ে চক্রবৃদ্ধি সুদ, সরল সুদ, সঞ্চয় লক্ষ্য এবং ROI গণনা করুন। আপনার সমস্ত আর্থিক পরিকল্পনার প্রয়োজনে ব্যবহার করা সহজ।',
+          keywords: 'আর্থিক ক্যালকুলেটর, সুদ ক্যালকুলেটর, বিনিয়োগ ক্যালকুলেটর, সঞ্চয় ক্যালকুলেটর, ROI ক্যালকুলেটর, বিনামূল্যে আর্থিক সরঞ্জাম, অনলাইন ক্যালকুলেটর, আর্থিক পরিকল্পনা সরঞ্জাম, বন্ধকী ক্যালকুলেটর, ঋণ ক্যালকুলেটর',
+          structuredData: createStructuredData('সার্বজনীন আর্থিক ক্যালকুলেটর', 'চক্রবৃদ্ধি সুদ, সরল সুদ, সঞ্চয় লক্ষ্য এবং ROI গণনা সমর্থনকারী একটি বিস্তৃত আর্থিক ক্যালকুলেটর।', 'bn')
+      },
+      [CalculatorType.COMPOUND_INTEREST]: {
+          title: 'চক্রবৃদ্ধি সুদ ক্যালকুলেটর | ভবিষ্যত মূল্য বিনিয়োগ বৃদ্ধি',
+          description: 'আমাদের চক্রবৃদ্ধি সুদ ক্যালকুলেটর দিয়ে আপনার বিনিয়োগের ভবিষ্যত মূল্য সহজেই গণনা করুন। মূল পরিমাণ, সুদের হার, সময় এবং অবদানের সাথে আপনার অর্থ কীভাবে বাড়তে পারে তা দেখুন।',
+          keywords: 'চক্রবৃদ্ধি সুদ ক্যালকুলেটর, ভবিষ্যত মূল্য ক্যালকুলেটর, বিনিয়োগ বৃদ্ধি, অবসর সঞ্চয়, আর্থিক পরিকল্পনা, সঞ্চয় বৃদ্ধি ক্যালকুলেটর, চক্রবৃদ্ধি সুদ গণনা',
+          structuredData: createStructuredData('চক্রবৃদ্ধি সুদ ক্যালকুলেটর', 'আপনার বিনিয়োগের ভবিষ্যত মূল্য সহজেই গণনা করুন।', 'bn')
+      }
+  },
+  fr: {
+      default: {
+          title: 'Calculateur Financier Universel | Outil en ligne gratuit et précis',
+          description: 'Calculez les intérêts composés, les intérêts simples, les objectifs d\'épargne et le ROI avec notre calculateur financier multilingue gratuit.',
+          keywords: 'calculateur financier, calculateur d\'intérêts, calculateur d\'investissement, calculateur d\'épargne, calculateur ROI, outils financiers gratuits, calculateur en ligne, calculateur d\'argent',
+          structuredData: createStructuredData('Calculateur Financier Universel', 'Un calculateur financier complet supportant les intérêts composés, les intérêts simples, les objectifs d\'épargne et les calculs de ROI.', 'fr')
+      },
+      [CalculatorType.COMPOUND_INTEREST]: {
+          title: 'Calculateur d\'Intérêts Composés | Croissance future de l\'investissement',
+          description: 'Calculez facilement la valeur future de votre investissement avec notre calculateur d\'intérêts composés.',
+          keywords: 'calculateur intérêts composés, calculateur valeur future, croissance investissement, épargne retraite, planification financière',
+          structuredData: createStructuredData('Calculateur d\'Intérêts Composés', 'Calculez la valeur future de votre investissement.', 'fr')
+      }
+  },
+  de: {
+      default: {
+          title: 'Universeller Finanzrechner | Kostenloses & präzises Online-Tool',
+          description: 'Berechnen Sie Zinseszins, einfache Zinsen, Sparziele und ROI mit unserem kostenlosen mehrsprachigen Finanzrechner.',
+          keywords: 'Finanzrechner, Zinsrechner, Investitionsrechner, Sparrechner, ROI-Rechner, kostenlose Finanztools, Online-Rechner, Geldrechner',
+          structuredData: createStructuredData('Universeller Finanzrechner', 'Ein umfassender Finanzrechner für Zinseszins, einfache Zinsen, Sparziele und ROI-Berechnungen.', 'de')
+      },
+      [CalculatorType.COMPOUND_INTEREST]: {
+          title: 'Zinseszinsrechner | Zukünftiger Wert Investitionswachstum',
+          description: 'Berechnen Sie einfach den zukünftigen Wert Ihrer Investition mit unserem Zinseszinsrechner.',
+          keywords: 'Zinseszinsrechner, Zukunftswertrechner, Investitionswachstum, Altersvorsorge, Finanzplanung',
+          structuredData: createStructuredData('Zinseszinsrechner', 'Berechnen Sie den zukünftigen Wert Ihrer Investition.', 'de')
+      }
+  },
+  it: {
+      default: {
+          title: 'Calcolatore Finanziario Universale | Strumento online gratuito e preciso',
+          description: 'Calcola interesse composto, interesse semplice, obiettivi di risparmio e ROI con il nostro calcolatore finanziario multilingue gratuito.',
+          keywords: 'calcolatore finanziario, calcolatore interessi, calcolatore investimenti, calcolatore risparmi, calcolatore ROI, strumenti finanziari gratuiti',
+          structuredData: createStructuredData('Calcolatore Finanziario Universale', 'Un calcolatore finanziario completo per interesse composto, interesse semplice, obiettivi di risparmio e calcoli ROI.', 'it')
+      },
+      [CalculatorType.COMPOUND_INTEREST]: {
+          title: 'Calcolatore Interesse Composto | Crescita futura degli investimenti',
+          description: 'Calcola facilmente il valore futuro del tuo investimento con il nostro calcolatore di interesse composto.',
+          keywords: 'calcolatore interesse composto, calcolatore valore futuro, crescita investimenti, risparmio pensionistico, pianificazione finanziaria',
+          structuredData: createStructuredData('Calcolatore Interesse Composto', 'Calcola il valore futuro del tuo investimento.', 'it')
+      }
+  },
+  ru: {
+      default: {
+          title: 'Универсальный Финансовый Калькулятор | Бесплатный и точный онлайн-инструмент',
+          description: 'Рассчитайте сложные проценты, простые проценты, цели сбережений и ROI с нашим бесплатным многоязычным финансовым калькулятором.',
+          keywords: 'финансовый калькулятор, калькулятор процентов, инвестиционный калькулятор, калькулятор сбережений, калькулятор ROI, бесплатные финансовые инструменты',
+          structuredData: createStructuredData('Универсальный Финансовый Калькулятор', 'Комплексный финансовый калькулятор для сложных процентов, простых процентов, целей сбережений и расчетов ROI.', 'ru')
+      },
+      [CalculatorType.COMPOUND_INTEREST]: {
+          title: 'Калькулятор Сложных Процентов | Будущая стоимость роста инвестиций',
+          description: 'Легко рассчитайте будущую стоимость ваших инвестиций с нашим калькулятором сложных процентов.',
+          keywords: 'калькулятор сложных процентов, калькулятор будущей стоимости, рост инвестиций, пенсионные сбережения, финансовое планирование',
+          structuredData: createStructuredData('Калькулятор Сложных Процентов', 'Рассчитайте будущую стоимость ваших инвестиций.', 'ru')
+      }
+  },
+  ar: {
+      default: {
+          title: 'حاسبة مالية شاملة | أداة مجانية ودقيقة عبر الإنترنت',
+          description: 'احسب الفائدة المركبة والفائدة البسيطة وأهداف الادخار والعائد على الاستثمار باستخدام حاسبتنا المالية المجانية متعددة اللغات.',
+          keywords: 'حاسبة مالية، حاسبة الفائدة، حاسبة الاستثمار، حاسبة الادخار، حاسبة ROI، أدوات مالية مجانية، حاسبة عبر الإنترنت',
+          structuredData: createStructuredData('حاسبة مالية شاملة', 'حاسبة مالية شاملة تدعم الفائدة المركبة والفائدة البسيطة وأهداف الادخار وحسابات العائد على الاستثمار.', 'ar')
+      },
+      [CalculatorType.COMPOUND_INTEREST]: {
+          title: 'حاسبة الفائدة المركبة | نمو القيمة المستقبلية للاستثمار',
+          description: 'احسب بسهولة القيمة المستقبلية لاستثمارك باستخدام حاسبة الفائدة المركبة.',
+          keywords: 'حاسبة الفائدة المركبة، حاسبة القيمة المستقبلية، نمو الاستثمار، مدخرات التقاعد، التخطيط المالي',
+          structuredData: createStructuredData('حاسبة الفائدة المركبة', 'احسب القيمة المستقبلية لاستثمارك.', 'ar')
+      }
+  },
+  hi: {
+      default: {
+          title: 'यूनिवर्सल वित्तीय कैलकुलेटर | मुफ्त और सटीक ऑनलाइन टूल',
+          description: 'हमारे मुफ्त बहुभाषी वित्तीय कैलकुलेटर से चक्रवृद्धि ब्याज, साधारण ब्याज, बचत लक्ष्य और ROI की गणना करें।',
+          keywords: 'वित्तीय कैलकुलेटर, ब्याज कैलकुलेटर, निवेश कैलकुलेटर, बचत कैलकुलेटर, ROI कैलकुलेटर, मुफ्त वित्तीय उपकरण',
+          structuredData: createStructuredData('यूनिवर्सल वित्तीय कैलकुलेटर', 'एक व्यापक वित्तीय कैलकुलेटर जो चक्रवृद्धि ब्याज, साधारण ब्याज, बचत लक्ष्य और ROI गणना का समर्थन करता है।', 'hi')
+      },
+      [CalculatorType.COMPOUND_INTEREST]: {
+          title: 'चक्रवृद्धि ब्याज कैलकुलेटर | भविष्य मूल्य निवेश वृद्धि',
+          description: 'हमारे चक्रवृद्धि ब्याज कैलकुलेटर से अपने निवेश के भविष्य मूल्य की आसानी से गणना करें।',
+          keywords: 'चक्रवृद्धि ब्याज कैलकुलेटर, भविष्य मूल्य कैलकुलेटर, निवेश वृद्धि, सेवानिवृत्ति बचत, वित्तीय योजना',
+          structuredData: createStructuredData('चक्रवृद्धि ब्याज कैलकुलेटर', 'अपने निवेश के भविष्य मूल्य की गणना करें।', 'hi')
+      }
+  },
+  id: {
+      default: {
+          title: 'Kalkulator Keuangan Universal | Alat Online Gratis & Akurat',
+          description: 'Hitung bunga majemuk, bunga sederhana, target tabungan, dan ROI dengan kalkulator keuangan multibahasa gratis kami.',
+          keywords: 'kalkulator keuangan, kalkulator bunga, kalkulator investasi, kalkulator tabungan, kalkulator ROI, alat keuangan gratis',
+          structuredData: createStructuredData('Kalkulator Keuangan Universal', 'Kalkulator keuangan komprehensif yang mendukung bunga majemuk, bunga sederhana, target tabungan, dan perhitungan ROI.', 'id')
+      },
+      [CalculatorType.COMPOUND_INTEREST]: {
+          title: 'Kalkulator Bunga Majemuk | Pertumbuhan Nilai Masa Depan Investasi',
+          description: 'Hitung dengan mudah nilai masa depan investasi Anda dengan kalkulator bunga majemuk kami.',
+          keywords: 'kalkulator bunga majemuk, kalkulator nilai masa depan, pertumbuhan investasi, tabungan pensiun, perencanaan keuangan',
+          structuredData: createStructuredData('Kalkulator Bunga Majemuk', 'Hitung nilai masa depan investasi Anda.', 'id')
+      }
+  },
+  nl: {
+      default: {
+          title: 'Universele Financiële Calculator | Gratis & Nauwkeurige Online Tool',
+          description: 'Bereken samengestelde rente, enkelvoudige rente, spaardoelen en ROI met onze gratis meertalige financiële calculator.',
+          keywords: 'financiële calculator, rentecalculator, investeringscalculator, spaarcalculator, ROI-calculator, gratis financiële tools',
+          structuredData: createStructuredData('Universele Financiële Calculator', 'Een uitgebreide financiële calculator die samengestelde rente, enkelvoudige rente, spaardoelen en ROI-berekeningen ondersteunt.', 'nl')
+      },
+      [CalculatorType.COMPOUND_INTEREST]: {
+          title: 'Samengestelde Rente Calculator | Toekomstige Waarde Investeringsgroei',
+          description: 'Bereken eenvoudig de toekomstige waarde van uw investering met onze samengestelde rente calculator.',
+          keywords: 'samengestelde rente calculator, toekomstige waarde calculator, investeringsgroei, pensioensparen, financiële planning',
+          structuredData: createStructuredData('Samengestelde Rente Calculator', 'Bereken de toekomstige waarde van uw investering.', 'nl')
+      }
+  },
+  tr: {
+      default: {
+          title: 'Evrensel Finansal Hesap Makinesi | Ücretsiz ve Doğru Çevrimiçi Araç',
+          description: 'Ücretsiz çok dilli finansal hesap makinemizle bileşik faiz, basit faiz, tasarruf hedefleri ve yatırım getirisini hesaplayın.',
+          keywords: 'finansal hesap makinesi, faiz hesaplama, yatırım hesaplama, tasarruf hesaplama, ROI hesaplama, ücretsiz finansal araçlar',
+          structuredData: createStructuredData('Evrensel Finansal Hesap Makinesi', 'Bileşik faiz, basit faiz, tasarruf hedefleri ve ROI hesaplamalarını destekleyen kapsamlı bir finansal hesap makinesi.', 'tr')
+      },
+      [CalculatorType.COMPOUND_INTEREST]: {
+          title: 'Bileşik Faiz Hesaplayıcı | Gelecekteki Değer Yatırım Büyümesi',
+          description: 'Bileşik faiz hesaplayıcımızla yatırımınızın gelecekteki değerini kolayca hesaplayın.',
+          keywords: 'bileşik faiz hesaplayıcı, gelecek değer hesaplayıcı, yatırım büyümesi, emeklilik tasarrufları, finansal planlama',
+          structuredData: createStructuredData('Bileşik Faiz Hesaplayıcı', 'Yatırımınızın gelecekteki değerini hesaplayın.', 'tr')
+      }
+  },
+  pl: {
+      default: {
+          title: 'Uniwersalny Kalkulator Finansowy | Darmowe i dokładne narzędzie online',
+          description: 'Oblicz procent składany, procent prosty, cele oszczędnościowe i ROI za pomocą naszego darmowego wielojęzycznego kalkulatora finansowego.',
+          keywords: 'kalkulator finansowy, kalkulator odsetek, kalkulator inwestycyjny, kalkulator oszczędności, kalkulator ROI, darmowe narzędzia finansowe',
+          structuredData: createStructuredData('Uniwersalny Kalkulator Finansowy', 'Kompleksowy kalkulator finansowy obsługujący procent składany, procent prosty, cele oszczędnościowe i obliczenia ROI.', 'pl')
+      },
+      [CalculatorType.COMPOUND_INTEREST]: {
+          title: 'Kalkulator Procentu Składanego | Wzrost wartości przyszłej inwestycji',
+          description: 'Łatwo oblicz przyszłą wartość swojej inwestycji za pomocą naszego kalkulatora procentu składanego.',
+          keywords: 'kalkulator procentu składanego, kalkulator wartości przyszłej, wzrost inwestycji, oszczędności emerytalne, planowanie finansowe',
+          structuredData: createStructuredData('Kalkulator Procentu Składanego', 'Oblicz przyszłą wartość swojej inwestycji.', 'pl')
+      }
   }
 };
 

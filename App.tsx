@@ -57,15 +57,15 @@ const AppContent: React.FC = () => {
     }, [language, activeCalculator]);
 
     const navItems = useMemo(() => [
-        { key: CalculatorType.COMPOUND_INTEREST, label: t('compoundInterestTitle') },
-        { key: CalculatorType.SIMPLE_INTEREST, label: t('simpleInterestTitle') },
-        { key: CalculatorType.SAVINGS_GOAL, label: t('savingsGoalTitle') },
-        { key: CalculatorType.ROI, label: t('roiTitle') },
-        { key: CalculatorType.LOAN, label: t('loanTitle') },
-        { key: CalculatorType.RETIREMENT, label: t('retirementTitle') },
-        { key: CalculatorType.INFLATION, label: t('inflationTitle') },
-        { key: CalculatorType.TIP, label: t('tipTitle') },
-        { key: CalculatorType.BREAK_EVEN, label: t('breakEvenTitle') },
+        { key: CalculatorType.COMPOUND_INTEREST, label: t('compoundInterestTitle'), icon: '📈', color: 'from-emerald-500 to-teal-600' },
+        { key: CalculatorType.SIMPLE_INTEREST, label: t('simpleInterestTitle'), icon: '💰', color: 'from-blue-500 to-cyan-600' },
+        { key: CalculatorType.SAVINGS_GOAL, label: t('savingsGoalTitle'), icon: '🎯', color: 'from-purple-500 to-pink-600' },
+        { key: CalculatorType.ROI, label: t('roiTitle'), icon: '📊', color: 'from-orange-500 to-amber-600' },
+        { key: CalculatorType.LOAN, label: t('loanTitle'), icon: '🏠', color: 'from-indigo-500 to-blue-600' },
+        { key: CalculatorType.RETIREMENT, label: t('retirementTitle'), icon: '🌅', color: 'from-rose-500 to-red-600' },
+        { key: CalculatorType.INFLATION, label: t('inflationTitle'), icon: '📉', color: 'from-slate-500 to-gray-600' },
+        { key: CalculatorType.TIP, label: t('tipTitle'), icon: '🍽️', color: 'from-lime-500 to-green-600' },
+        { key: CalculatorType.BREAK_EVEN, label: t('breakEvenTitle'), icon: '⚖️', color: 'from-violet-500 to-purple-600' },
     ], [t]);
 
     const renderCalculator = useCallback(() => {
@@ -99,25 +99,38 @@ const AppContent: React.FC = () => {
                 return (
                     <>
                         <div className="mb-8">
-                            <label htmlFor="calculator-select" className="block text-sm font-bold text-slate-700 mb-3 uppercase tracking-wide flex items-center gap-2">
-                                <span className="text-lg">🧮</span>
+                            <h2 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3">
+                                <span className="text-3xl">🧮</span>
                                 {t('selectCalculator')}
-                            </label>
-                            <div className="relative group">
-                                <select
-                                    id="calculator-select"
-                                    value={activeCalculator}
-                                    onChange={(e) => setActiveCalculator(e.target.value as CalculatorType)}
-                                    className="w-full appearance-none bg-gradient-to-r from-red-50 via-rose-50 to-pink-50 border-2 border-slate-200 hover:border-red-400 rounded-2xl py-4 px-5 pr-12 text-lg font-semibold focus:outline-none focus:ring-4 focus:ring-red-500/30 focus:border-red-500 transition-all duration-300 shadow-md hover:shadow-xl cursor-pointer"
-                                    aria-label={t('selectCalculator')}
-                                >
-                                    {navItems.map(item => (
-                                        <option key={item.key} value={item.key}>{item.label}</option>
-                                    ))}
-                                </select>
-                                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-red-600 group-hover:text-rose-600 transition-colors">
-                                    <svg className="fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                                </div>
+                            </h2>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                                {navItems.map(item => (
+                                    <button
+                                        key={item.key}
+                                        onClick={() => setActiveCalculator(item.key as CalculatorType)}
+                                        className={`group relative overflow-hidden rounded-2xl p-6 text-left transition-all duration-300 transform hover:scale-105 hover:shadow-2xl ${
+                                            activeCalculator === item.key
+                                                ? 'bg-gradient-to-br shadow-xl ring-4 ring-red-500/50'
+                                                : 'bg-white shadow-md hover:shadow-xl'
+                                        }`}
+                                        aria-label={item.label}
+                                    >
+                                        <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+                                        <div className="relative flex flex-col items-start gap-3">
+                                            <div className={`text-4xl w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br ${item.color} shadow-lg`}>
+                                                <span className="text-white filter drop-shadow-md">{item.icon}</span>
+                                            </div>
+                                            <h3 className="font-bold text-base text-slate-800 leading-tight">
+                                                {item.label}
+                                            </h3>
+                                        </div>
+                                        {activeCalculator === item.key && (
+                                            <div className="absolute top-3 right-3">
+                                                <div className="w-3 h-3 rounded-full bg-gradient-to-br from-red-500 to-rose-600 animate-pulse shadow-lg"></div>
+                                            </div>
+                                        )}
+                                    </button>
+                                ))}
                             </div>
                         </div>
                         <div className="h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mb-8"></div>
