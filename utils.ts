@@ -20,3 +20,16 @@ export const parseForCalculation = (value: string): string => {
     // Allow only digits and one decimal point
     return value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
 };
+
+// Format number as currency with proper localization
+export const formatCurrency = (
+    value: number, 
+    language: string, 
+    currencyCode: string
+): string => {
+    return new Intl.NumberFormat(language, { 
+        style: 'currency', 
+        currency: currencyCode, 
+        minimumFractionDigits: 2 
+    }).format(value);
+};

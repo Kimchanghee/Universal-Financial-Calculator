@@ -1,0 +1,40 @@
+{
+  "name": "Finora - 스마트 금융 계산기",
+  "short_name": "Finora",
+  "description": "복리, ROI, 대출, 은퇴 설계 등 다양한 재무 계산을 지원하는 세련된 금융 계산기. 20개 언어 지원.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color":="#dc2626",
+  "theme_color": "#dc2626",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["finance", "productivity", "utilities"],
+  "screenshots": [
+    {
+      "src": "https://storage.googleapis.com/aistudio-project-files/assets/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "features": [
+    "복리 계산기",
+    "단리 계산기", 
+    "저축 목표 계산기",
+    "ROI 계산기",
+    "대출 계산기",
+    "은퇴 자금 계산기",
+    "인플레이션 계산기",
+    "팁 계산기",
+    "손익분기점 계산기"
+  ]
+}

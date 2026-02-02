@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useLocalization } from '../hooks/useLocalization';
 import InputField from './InputField';
 import ResultDisplay from './ResultDisplay';
 import { CURRENCY_MAP } from '../constants';
-import { formatForDisplay, parseForCalculation } from '../utils';
+import { formatForDisplay, parseForCalculation, formatCurrency } from '../utils';
 
 interface MonthlyData {
     month: number;
@@ -22,10 +22,6 @@ const CompoundInterestCalculator: React.FC = () => {
     const [monthlyData, setMonthlyData] = useState<MonthlyData[]>([]);
     
     const currency = CURRENCY_MAP[language] || CURRENCY_MAP['en'];
-
-    const formatCurrency = (value: number) => {
-        return new Intl.NumberFormat(language, { style: 'currency', currency: currency.code, minimumFractionDigits: 2 }).format(value);
-    };
 
     const calculate = () => {
         const p = parseForCalculation(principal) ? parseFloat(parseForCalculation(principal)) : 0;
@@ -62,9 +58,9 @@ const CompoundInterestCalculator: React.FC = () => {
         const finalTotalContributions = p + (c * numMonths);
 
         setResults([
-            { label: t('futureValue'), value: formatCurrency(currentBalance) },
-            { label: t('totalContributions'), value: formatCurrency(finalTotalContributions) },
-            { label: t('totalInterest'), value: formatCurrency(totalInterest) }
+            { label: t('futureValue'), value: formatCurrency(currentBalance, language, currency.code) },
+            { label: t('totalContributions'), value: formatCurrency(finalTotalContributions, language, currency.code) },
+            { label: t('totalInterest'), value: formatCurrency(totalInterest, language, currency.code) }
         ]);
         setMonthlyData(breakdown);
     };
@@ -78,6 +74,45 @@ const CompoundInterestCalculator: React.FC = () => {
         setMonthlyData([]);
     };
 
+    // Memoize monthly breakdown rendering for performance
+    const monthlyBreakdown = useMemo(() => {
+        if (monthlyData.length === 0) return null;
+        
+        return (
+            <div className="mt-10">
+                <h3 className="text-2xl font-bold mb-5 bg-gradient-to-r from-slate-700 to-red-700 bg-clip-text text-transparent flex items-center gap-2">
+                    <span className="text-2xl" aria-hidden="true">📊</span>
+                    {t('monthlyBreakdown')}
+                </h3>
+                <div className="max-h-96 overflow-auto rounded-2xl border-2 border-slate-200 shadow-xl">
+                    <table className="w-full text-left text-sm">
+                        <thead className="bg-gradient-to-r from-slate-100 to-red-50 text-xs font-bold text-slate-700 uppercase sticky top-0 border-b-2 border-slate-200">
+                            <tr>
+                                <th scope="col" className="px-6 py-4">{t('month')}</th>
+                                <th scope="col" className="px-6 py-4">{t('monthlyInterest')}</th>
+                                <th scope="col" className="px-6 py-4">{t('totalContributions')}</th>
+                                <th scope="col" className="px-6 py-4">{t('endBalance')}</th>
+                            </tr>
+                        </thead>
+                        <tbody className="text-slate-600">
+                            {monthlyData.map((data, index) => (
+                                <tr
+                                    key={data.month}
+                                    className={`${index % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'} border-b border-slate-100 hover:bg-red-50/50 transition-colors duration-200`}
+                                >
+                                    <td className="px-6 py-4 font-bold text-slate-900">{data.month}</td>
+                                    <td className="px-6 py-4 font-medium">{formatCurrency(data.interest, language, currency.code)}</td>
+                                    <td className="px-6 py-4 font-medium">{formatCurrency(data.totalContributions, language, currency.code)}</td>
+                                    <td className="px-6 py-4 font-bold text-red-700">{formatCurrency(data.endBalance, language, currency.code)}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        );
+    }, [monthlyData, language, currency.code, t]);
+
     return (
         <div>
             <h2 className="text-4xl font-extrabold mb-8 bg-gradient-to-r from-slate-800 via-red-700 to-rose-700 bg-clip-text text-transparent">{t('compoundInterestTitle')}</h2>
@@ -89,53 +124,22 @@ const CompoundInterestCalculator: React.FC = () => {
             </div>
             <div className="mt-8 flex gap-4">
                 <button
+                    type="button"
                     onClick={calculate}
                     className="flex-1 bg-gradient-to-r from-red-600 to-rose-600 text-white font-bold py-4 px-6 rounded-xl hover:from-red-700 hover:to-rose-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transform"
                 >
-                    ✨ {t('calculate')}
+                    <span aria-hidden="true">✨</span> {t('calculate')}
                 </button>
                 <button
+                    type="button"
                     onClick={reset}
                     className="flex-1 bg-gradient-to-r from-slate-100 to-slate-200 text-slate-700 font-bold py-4 px-6 rounded-xl hover:from-slate-200 hover:to-slate-300 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transform border-2 border-slate-300"
                 >
-                    🔄 {t('reset')}
+                    <span aria-hidden="true">🔄</span> {t('reset')}
                 </button>
             </div>
-            <ResultDisplay results={results} language={language} />
-
-            {monthlyData.length > 0 && (
-                <div className="mt-10">
-                    <h3 className="text-2xl font-bold mb-5 bg-gradient-to-r from-slate-700 to-red-700 bg-clip-text text-transparent flex items-center gap-2">
-                        <span className="text-2xl">📊</span>
-                        {t('monthlyBreakdown')}
-                    </h3>
-                    <div className="max-h-96 overflow-auto rounded-2xl border-2 border-slate-200 shadow-xl">
-                        <table className="w-full text-left text-sm">
-                            <thead className="bg-gradient-to-r from-slate-100 to-red-50 text-xs font-bold text-slate-700 uppercase sticky top-0 border-b-2 border-slate-200">
-                                <tr>
-                                    <th scope="col" className="px-6 py-4">{t('month')}</th>
-                                    <th scope="col" className="px-6 py-4">{t('monthlyInterest')}</th>
-                                    <th scope="col" className="px-6 py-4">{t('totalContributions')}</th>
-                                    <th scope="col" className="px-6 py-4">{t('endBalance')}</th>
-                                </tr>
-                            </thead>
-                            <tbody className="text-slate-600">
-                                {monthlyData.map((data, index) => (
-                                    <tr
-                                        key={data.month}
-                                        className={`${index % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'} border-b border-slate-100 hover:bg-red-50/50 transition-colors duration-200`}
-                                    >
-                                        <td className="px-6 py-4 font-bold text-slate-900">{data.month}</td>
-                                        <td className="px-6 py-4 font-medium">{formatCurrency(data.interest)}</td>
-                                        <td className="px-6 py-4 font-medium">{formatCurrency(data.totalContributions)}</td>
-                                        <td className="px-6 py-4 font-bold text-red-700">{formatCurrency(data.endBalance)}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            )}
+            <ResultDisplay results={results} />
+            {monthlyBreakdown}
         </div>
     );
 };

@@ -1,6 +1,8 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { useLocalization, LocalizationProvider } from './hooks/useLocalization';
 import { CalculatorType, PageType, SUPPORTED_LANGUAGES } from './constants';
+import ErrorBoundary from './components/ErrorBoundary';
+import Loading from './components/Loading';
 import CompoundInterestCalculator from './components/CompoundInterestCalculator';
 import SimpleInterestCalculator from './components/SimpleInterestCalculator';
 import SavingsGoalCalculator from './components/SavingsGoalCalculator';
@@ -18,9 +20,14 @@ import AdBanner from './components/AdBanner';
 import { getSeoData } from './seo';
 
 const AppContent: React.FC = () => {
-    const { t, setLanguage, language } = useLocalization();
+    const { t, setLanguage, language, isLoading } = useLocalization();
     const [activeCalculator, setActiveCalculator] = useState<CalculatorType>(CalculatorType.COMPOUND_INTEREST);
     const [activePage, setActivePage] = useState<PageType>(PageType.CALCULATORS);
+
+    // Show loading screen while translations are loading
+    if (isLoading) {
+        return <Loading />;
+    }
 
     useEffect(() => {
         const seoData = getSeoData(language, activeCalculator);
@@ -260,9 +267,11 @@ const AppContent: React.FC = () => {
 
 
 const App: React.FC = () => (
-    <LocalizationProvider>
-        <AppContent />
-    </LocalizationProvider>
+    <ErrorBoundary>
+        <LocalizationProvider>
+            <AppContent />
+        </LocalizationProvider>
+    </ErrorBoundary>
 );
 
 export default App;

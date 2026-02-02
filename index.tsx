@@ -1,7 +1,10 @@
-
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import ErrorBoundary from './components/ErrorBoundary';
+import Loading from './components/Loading';
+
+// Lazy load App for better performance
+const App = lazy(() => import('./App'));
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -11,6 +14,10 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <App />
+    <ErrorBoundary>
+      <Suspense fallback={<Loading />}>
+        <App />
+      </Suspense>
+    </ErrorBoundary>
   </React.StrictMode>
 );

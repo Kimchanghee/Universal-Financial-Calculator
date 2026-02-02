@@ -3,11 +3,11 @@ import { useLocalization } from '../hooks/useLocalization';
 
 interface ResultDisplayProps {
     results: Array<{ label: string; value: string }>;
-    language: string;
 }
 
-const ResultDisplay: React.FC<ResultDisplayProps> = ({ results, language }) => {
+const ResultDisplay: React.FC<ResultDisplayProps> = ({ results }) => {
     const { t } = useLocalization();
+    
     if (results.length === 0) {
         return null;
     }
@@ -18,7 +18,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ results, language }) => {
         <div className="mt-8 p-8 bg-gradient-to-br from-red-50 via-rose-50 to-pink-50 rounded-2xl border-2 border-red-200/50 shadow-xl backdrop-blur-sm animate-fadeIn">
             <div className="mb-4">
                 <h3 className="text-lg font-bold text-transparent bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text flex items-center gap-2">
-                    <span className="text-2xl">📈</span>
+                    <span className="text-2xl" aria-hidden="true">📈</span>
                     {t('results')}
                 </h3>
             </div>
@@ -30,7 +30,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ results, language }) => {
                         style={{ animationDelay: `${index * 100}ms` }}
                     >
                         <div className="flex items-center gap-3">
-                            <span className="text-2xl">{icons[index % icons.length]}</span>
+                            <span className="text-2xl" aria-hidden="true">{icons[index % icons.length]}</span>
                             <span className="text-base font-semibold text-slate-700">{result.label}</span>
                         </div>
                         <span className="text-2xl font-bold bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text text-transparent">

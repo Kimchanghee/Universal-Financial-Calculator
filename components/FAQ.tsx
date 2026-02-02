@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useLocalization } from '../hooks/useLocalization';
 
 const FAQ: React.FC = () => {
     const { t } = useLocalization();
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-    const faqs = [
+    // Memoize FAQs to prevent recreation on every render
+    const faqs = useMemo(() => [
         { question: t('faq1Question'), answer: t('faq1Answer') },
         { question: t('faq2Question'), answer: t('faq2Answer') },
         { question: t('faq3Question'), answer: t('faq3Answer') },
@@ -16,7 +17,7 @@ const FAQ: React.FC = () => {
         { question: t('faq8Question'), answer: t('faq8Answer') },
         { question: t('faq9Question'), answer: t('faq9Answer') },
         { question: t('faq10Question'), answer: t('faq10Answer') },
-    ];
+    ], [t]);
 
     const toggleFAQ = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -32,11 +33,13 @@ const FAQ: React.FC = () => {
                 {faqs.map((faq, index) => (
                     <div key={index} className="border border-slate-200 rounded-xl overflow-hidden">
                         <button
+                            type="button"
                             onClick={() => toggleFAQ(index)}
                             className="w-full text-left p-5 bg-gradient-to-r from-red-50 to-rose-50 hover:from-red-100 hover:to-rose-100 transition-colors flex justify-between items-center"
+                            aria-expanded={openIndex === index}
                         >
                             <span className="font-semibold text-slate-800 pr-4">{faq.question}</span>
-                            <span className="text-red-600 text-xl flex-shrink-0">
+                            <span className="text-red-600 text-xl flex-shrink-0" aria-hidden="true">
                                 {openIndex === index ? '−' : '+'}
                             </span>
                         </button>

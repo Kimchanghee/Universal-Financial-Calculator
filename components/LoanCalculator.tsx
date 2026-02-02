@@ -3,7 +3,7 @@ import { useLocalization } from '../hooks/useLocalization';
 import InputField from './InputField';
 import ResultDisplay from './ResultDisplay';
 import { CURRENCY_MAP } from '../constants';
-import { formatForDisplay, parseForCalculation } from '../utils';
+import { formatForDisplay, parseForCalculation, formatCurrency } from '../utils';
 
 const LoanCalculator: React.FC = () => {
     const { t, language } = useLocalization();
@@ -13,10 +13,6 @@ const LoanCalculator: React.FC = () => {
     const [results, setResults] = useState<{ label: string; value: string }[]>([]);
 
     const currency = CURRENCY_MAP[language] || CURRENCY_MAP['en'];
-
-    const formatCurrency = (value: number) => {
-        return new Intl.NumberFormat(language, { style: 'currency', currency: currency.code, minimumFractionDigits: 2 }).format(value);
-    };
 
     const calculate = () => {
         const principal = parseFloat(parseForCalculation(loanAmount));
@@ -37,9 +33,9 @@ const LoanCalculator: React.FC = () => {
         const totalInterest = totalPayment - principal;
 
         setResults([
-            { label: t('monthlyPayment'), value: formatCurrency(monthlyPayment) },
-            { label: t('totalPayment'), value: formatCurrency(totalPayment) },
-            { label: t('totalInterestPaid'), value: formatCurrency(totalInterest) },
+            { label: t('monthlyPayment'), value: formatCurrency(monthlyPayment, language, currency.code) },
+            { label: t('totalPayment'), value: formatCurrency(totalPayment, language, currency.code) },
+            { label: t('totalInterestPaid'), value: formatCurrency(totalInterest, language, currency.code) },
         ]);
     };
 
@@ -59,10 +55,10 @@ const LoanCalculator: React.FC = () => {
                 <InputField id="loanTerm" label={t('loanTermInYears')} value={loanTerm} onChange={e => setLoanTerm(parseForCalculation(e.target.value))} unit={t('yearsUnit')} />
             </div>
             <div className="mt-6 flex gap-4">
-                <button onClick={calculate} className="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-md hover:bg-blue-700 transition-colors">{t('calculate')}</button>
-                <button onClick={reset} className="w-full bg-gray-200 text-gray-700 font-bold py-3 px-4 rounded-md hover:bg-gray-300 transition-colors">{t('reset')}</button>
+                <button type="button" onClick={calculate} className="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-md hover:bg-blue-700 transition-colors">{t('calculate')}</button>
+                <button type="button" onClick={reset} className="w-full bg-gray-200 text-gray-700 font-bold py-3 px-4 rounded-md hover:bg-gray-300 transition-colors">{t('reset')}</button>
             </div>
-            <ResultDisplay results={results} language={language} />
+            <ResultDisplay results={results} />
         </div>
     );
 };

@@ -1,5 +1,6 @@
 # Finora Financial Calculator - Robots.txt
 # Optimized for SEO and AEO (Answer Engine Optimization)
+# IMPORTANT: Update the Sitemap URL below with your actual domain before deployment
 
 # Allow all search engines to crawl everything
 User-agent: *
@@ -84,7 +85,10 @@ User-agent: WhatsApp
 Allow: /
 
 # Sitemap locations
-Sitemap: https://your-domain.com/sitemap.xml
+# TODO: Replace with your actual domain before deployment
+# Example: Sitemap: https://finora.vercel.app/sitemap.xml
+Sitemap: /sitemap.xml
 
 # Host directive (optional - specify your preferred domain)
+# TODO: Uncomment and update with your actual domain
 # Host: https://your-domain.com

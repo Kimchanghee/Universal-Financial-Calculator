@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 declare global {
     interface Window {
@@ -14,24 +14,58 @@ interface AdBannerProps {
     slot: string;
 }
 
-const AdBanner: React.FC<AdBannerProps> = ({ width, height, size, label, slot }) => {
+// Get AdSense ID from environment variable or use placeholder
+const ADSENSE_ID = import.meta.env.VITE_ADSENSE_ID || 'ca-pub-XXXXXXXXXXXXXXXX';
+
+const AdBanner: React.FC<AdBannerProps> = ({ width, height, size, label: _label, slot }) => {
+    const adRef = useRef<HTMLModElement>(null);
+    const isLoaded = useRef(false);
+
     useEffect(() => {
+        // Prevent duplicate loading in React Strict Mode
+        if (isLoaded.current) return;
+        
+        // Skip ad loading if using placeholder ID
+        if (ADSENSE_ID === 'ca-pub-XXXXXXXXXXXXXXXX') {
+            console.warn('AdSense: Using placeholder ID. Please set VITE_ADSENSE_ID environment variable.');
+            return;
+        }
+        
         try {
-            (window.adsbygoogle = window.adsbygoogle || []).push({});
+            if (adRef.current && window.adsbygoogle) {
+                isLoaded.current = true;
+                window.adsbygoogle.push({});
+            }
         } catch (e) {
             console.error('AdSense error:', e);
         }
-    }, []);
+    }, [slot]);
 
     const [adWidth, adHeight] = size.split('x');
+    
+    // Show placeholder if no valid AdSense ID
+    if (ADSENSE_ID === 'ca-pub-XXXXXXXXXXXXXXXX') {
+        return (
+            <div className={`flex justify-center items-center ${width} ${height} my-2`}>
+                <div 
+                    className="flex items-center justify-center bg-slate-100 border-2 border-dashed border-slate-300 rounded-lg text-slate-400 text-sm"
+                    style={{ width: `${adWidth}px`, height: `${adHeight}px` }}
+                >
+                    <span>광고 공간 ({size})</span>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className={`flex justify-center items-center ${width} ${height} my-2`}>
-            <ins className="adsbygoogle"
-                 style={{ display: 'inline-block', width: `${adWidth}px`, height: `${adHeight}px`, backgroundColor: '#f0f0f0' }}
-                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                 data-ad-slot={slot}>
-            </ins>
+            <ins 
+                ref={adRef}
+                className="adsbygoogle"
+                style={{ display: 'inline-block', width: `${adWidth}px`, height: `${adHeight}px`, backgroundColor: '#f0f0f0' }}
+                data-ad-client={ADSENSE_ID}
+                data-ad-slot={slot}
+            />
         </div>
     );
 };
