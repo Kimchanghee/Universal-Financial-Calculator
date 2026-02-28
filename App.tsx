@@ -27,6 +27,13 @@ const AD_SLOTS = {
     sidebarLeft: import.meta.env.VITE_AD_SLOT_SIDEBAR_LEFT || DEFAULT_AD_SLOT,
     sidebarRight: import.meta.env.VITE_AD_SLOT_SIDEBAR_RIGHT || DEFAULT_AD_SLOT,
 };
+const AD_CHANNELS = {
+    top: import.meta.env.VITE_AD_CHANNEL_TOP || '',
+    body: import.meta.env.VITE_AD_CHANNEL_BODY || '',
+    footer: import.meta.env.VITE_AD_CHANNEL_FOOTER || '',
+    sidebarLeft: import.meta.env.VITE_AD_CHANNEL_SIDEBAR_LEFT || '',
+    sidebarRight: import.meta.env.VITE_AD_CHANNEL_SIDEBAR_RIGHT || '',
+};
 
 const AppContent: React.FC = () => {
     const { t, setLanguage, language, isLoading } = useLocalization();
@@ -171,7 +178,16 @@ const AppContent: React.FC = () => {
             <div className="relative flex justify-center">
                 {/* Left Ad Banner */}
                 <aside className="sticky top-0 h-screen hidden xl:flex w-48 flex-shrink-0 items-center justify-center px-4" aria-label={t('adLabel')}>
-                    <AdBanner slot={AD_SLOTS.sidebarLeft} width="w-40" height="h-[600px]" size="160x600" label={t('adLabel')} />
+                    <AdBanner
+                        slot={AD_SLOTS.sidebarLeft}
+                        channel={AD_CHANNELS.sidebarLeft}
+                        placement="sidebar_left"
+                        width="w-40"
+                        height="h-[600px]"
+                        size="160x600"
+                        label={t('adLabel')}
+                        lazy
+                    />
                 </aside>
 
                 {/* Main Content */}
@@ -205,7 +221,18 @@ const AppContent: React.FC = () => {
                     </header>
 
                     <div className="px-4 py-2">
-                        <AdBanner slot={AD_SLOTS.top} width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
+                        <AdBanner
+                            slot={AD_SLOTS.top}
+                            channel={AD_CHANNELS.top}
+                            placement="top"
+                            width="w-full"
+                            height="h-24"
+                            size="728x90"
+                            label={t('adLabel')}
+                            priority="high"
+                            responsive
+                            lazy={false}
+                        />
                     </div>
 
                     <main className="px-6 py-8">
@@ -213,12 +240,32 @@ const AppContent: React.FC = () => {
                             {renderPage()}
                         </div>
                         <div className="mt-8">
-                            <AdBanner slot={AD_SLOTS.body} width="w-full" height="h-64" size="336x280" label={t('adLabel')} />
+                            <AdBanner
+                                slot={AD_SLOTS.body}
+                                channel={AD_CHANNELS.body}
+                                placement="body"
+                                width="w-full"
+                                height="h-64"
+                                size="336x280"
+                                label={t('adLabel')}
+                                responsive
+                                lazy
+                            />
                         </div>
                     </main>
 
                     <footer className="px-6 py-10 text-center">
-                        <AdBanner slot={AD_SLOTS.footer} width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
+                        <AdBanner
+                            slot={AD_SLOTS.footer}
+                            channel={AD_CHANNELS.footer}
+                            placement="footer"
+                            width="w-full"
+                            height="h-24"
+                            size="728x90"
+                            label={t('adLabel')}
+                            responsive
+                            lazy
+                        />
                         <nav className="mt-6 mb-4">
                             <div className="flex flex-wrap justify-center gap-4 text-sm">
                                 <button
@@ -265,7 +312,16 @@ const AppContent: React.FC = () => {
 
                 {/* Right Ad Banner */}
                 <aside className="sticky top-0 h-screen hidden xl:flex w-48 flex-shrink-0 items-center justify-center px-4" aria-label={t('adLabel')}>
-                    <AdBanner slot={AD_SLOTS.sidebarRight} width="w-40" height="h-[600px]" size="160x600" label={t('adLabel')} />
+                    <AdBanner
+                        slot={AD_SLOTS.sidebarRight}
+                        channel={AD_CHANNELS.sidebarRight}
+                        placement="sidebar_right"
+                        width="w-40"
+                        height="h-[600px]"
+                        size="160x600"
+                        label={t('adLabel')}
+                        lazy
+                    />
                 </aside>
             </div>
         </div>

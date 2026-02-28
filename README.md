@@ -49,6 +49,15 @@ This repository is configured to deploy through Lovable only.
 - `VITE_AD_SLOT_FOOTER` (optional, required for footer ad to render)
 - `VITE_AD_SLOT_SIDEBAR_LEFT` (optional, required for left sidebar ad to render)
 - `VITE_AD_SLOT_SIDEBAR_RIGHT` (optional, required for right sidebar ad to render)
+- `VITE_AD_CHANNEL_TOP` (optional)
+- `VITE_AD_CHANNEL_BODY` (optional)
+- `VITE_AD_CHANNEL_FOOTER` (optional)
+- `VITE_AD_CHANNEL_SIDEBAR_LEFT` (optional)
+- `VITE_AD_CHANNEL_SIDEBAR_RIGHT` (optional)
+- `VITE_AD_ENABLE_AUTO_ADS` (optional, defaults to `true`)
+- `VITE_AD_ENABLE_RESPONSIVE` (optional, defaults to `true`)
+- `VITE_AD_LAZY_MARGIN` (optional, defaults to `300px`)
+- `VITE_AD_TEST_MODE` (optional, set to `on` only for local test)
 - `GEMINI_API_KEY` (optional)
 - `VITE_APP_ENV` (optional, defaults to `development` locally)
 
@@ -60,6 +69,21 @@ The app is ready to publish on Lovable now. Ads will start serving when all AdSe
 2. Ad slot IDs (`VITE_AD_SLOT_*`)
 
 If these are not set, the UI shows safe placeholder ad boxes instead of broken ad scripts.
+
+## Ad Revenue Optimization Setup
+
+This project now ships with production-oriented ad optimization defaults:
+
+- Top slot loads immediately (`priority=high`) to maximize above-the-fold opportunities.
+- Body/footer/side slots lazy-load with `IntersectionObserver` to reduce wasted requests and improve page performance.
+- Top/body/footer slots use responsive ad format (`data-ad-format=auto`) to improve fill across devices.
+- Auto ads can run in parallel with manual slots (`VITE_AD_ENABLE_AUTO_ADS=true`).
+- Per-slot ad channels are supported for RPM/viewability comparison.
+- Optional GA ad events are emitted (`ad_slot_viewport_entry`, `ad_slot_request`) when `VITE_GA_ID` is configured.
+
+Detailed rollout and optimization plan:
+
+- See `ADS_OPTIMIZATION.md`
 
 ## SEO Notes
 
