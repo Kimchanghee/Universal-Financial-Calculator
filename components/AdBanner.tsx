@@ -27,7 +27,7 @@ const isValidAdSlot = (slot: string): boolean => {
     return /^\d{8,}$/.test(slot) && slot !== SLOT_PLACEHOLDER;
 };
 
-const AdBanner: React.FC<AdBannerProps> = ({ width, height, size, label: _label, slot }) => {
+const AdBanner: React.FC<AdBannerProps> = ({ width, height, size, label, slot }) => {
     const adRef = useRef<HTMLModElement>(null);
     const isLoaded = useRef(false);
 
@@ -88,7 +88,7 @@ const AdBanner: React.FC<AdBannerProps> = ({ width, height, size, label: _label,
                     className="flex items-center justify-center bg-slate-100 border-2 border-dashed border-slate-300 rounded-lg text-slate-400 text-sm"
                     style={{ width: `${adWidth}px`, height: `${adHeight}px` }}
                 >
-                    <span>Ad Space ({size})</span>
+                    <span>{label} ({size})</span>
                 </div>
             </div>
         );

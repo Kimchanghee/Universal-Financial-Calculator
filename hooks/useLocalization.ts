@@ -36,6 +36,7 @@ const getInitialLanguage = (): string => {
 export const LocalizationProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [language, setLanguageState] = useState<string>(getInitialLanguage);
     const [translations, setTranslations] = useState<Translations>({});
+    const [fallbackTranslations, setFallbackTranslations] = useState<Translations>({});
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -52,14 +53,38 @@ export const LocalizationProvider: React.FC<{ children: React.ReactNode }> = ({ 
     }, []);
 
     useEffect(() => {
+        const loadLocale = async (locale: string): Promise<Translations> => {
+            const response = await fetch(`/locales/${locale}.json`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            return response.json() as Promise<Translations>;
+        };
+
         const loadTranslations = async () => {
             setIsLoading(true);
             setError(null);
             
             try {
-                const response = await fetch(`/locales/${language}.json?v=${Date.now()}`);
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                const data = await response.json();
+                const fallback = await loadLocale('en');
+                setFallbackTranslations(fallback);
+
+                if (language === 'en') {
+                    setTranslations(fallback);
+                    return;
+                }
+
+                const data = await loadLocale(language);
+                const fallbackKeys = Object.keys(fallback);
+                const hasAllKeys = fallbackKeys.every(key => typeof data[key] === 'string');
+
+                if (!hasAllKeys) {
+                    setError(`Translations for ${language} are incomplete. Falling back to English.`);
+                    setTranslations(fallback);
+                    return;
+                }
+
                 setTranslations(data);
             } catch (error) {
                 console.error(`Could not load translations for ${language}`, error);
@@ -67,13 +92,13 @@ export const LocalizationProvider: React.FC<{ children: React.ReactNode }> = ({ 
                 
                 // Try fallback to English
                 try {
-                    const response = await fetch(`/locales/en.json?v=${Date.now()}`);
-                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                    const data = await response.json();
+                    const data = await loadLocale('en');
+                    setFallbackTranslations(data);
                     setTranslations(data);
                     setError(null); // Clear error if fallback succeeds
                 } catch (fallbackError) {
                     console.error('Could not load fallback English translations.', fallbackError);
+                    setFallbackTranslations({});
                     setTranslations({});
                 }
             } finally {
@@ -85,8 +110,8 @@ export const LocalizationProvider: React.FC<{ children: React.ReactNode }> = ({ 
     }, [language]);
 
     const t = useCallback((key: string): string => {
-        return translations[key] || key;
-    }, [translations]);
+        return translations[key] || fallbackTranslations[key] || key;
+    }, [translations, fallbackTranslations]);
 
     const memoizedValue = useMemo(() => ({
         language,

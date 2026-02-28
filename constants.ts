@@ -3,12 +3,6 @@ import type { Language } from './types';
 export const SUPPORTED_LANGUAGES: Language[] = [
     { code: 'en', name: 'English' },
     { code: 'ko', name: '한국어' },
-    { code: 'ja', name: '日本語' },
-    { code: 'zh', name: '中文' },
-    { code: 'es', name: 'Español' },
-    { code: 'pt', name: 'Português' },
-    { code: 'th', name: 'ไทย' },
-    { code: 'vi', name: 'Tiếng Việt' },
     { code: 'fr', name: 'Français' },
     { code: 'de', name: 'Deutsch' },
     { code: 'it', name: 'Italiano' },

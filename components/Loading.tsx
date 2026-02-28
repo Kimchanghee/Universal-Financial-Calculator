@@ -13,7 +13,7 @@ const Loading: React.FC = () => {
                     </div>
                 </div>
                 <p className="mt-4 text-slate-600 font-medium animate-pulse">
-                    로딩 중...
+                    Loading...
                 </p>
             </div>
         </div>

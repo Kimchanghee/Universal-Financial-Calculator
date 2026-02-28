@@ -258,9 +258,7 @@ const AppContent: React.FC = () => {
                             </div>
                         </nav>
                         <div className="mt-6 space-y-2">
-                            <p className="text-sm font-semibold text-slate-600">&copy; {new Date().getFullYear()} Finora. All rights reserved.</p>
-                            <p className="text-xs text-slate-400 font-medium">Made with love by withYM</p>
-                            <p className="text-xs text-slate-400 font-medium">Empowering financial decisions worldwide</p>
+                            <p className="text-sm font-semibold text-slate-600">&copy; {new Date().getFullYear()} Finora</p>
                         </div>
                     </footer>
                 </div>
