@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GA_ID%"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      // Google Analytics ID from environment variable
-      const gaId = '%VITE_GA_ID%';
-      if (gaId && gaId !== 'G-XXXXXXXXXX' && !gaId.includes('VITE_')) {
-        gtag('config', gaId);
-      }
-    </script>
-
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -119,10 +106,6 @@
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
-
-    <!-- Google AdSense - ID from environment variable -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=%VITE_ADSENSE_ID%"
-     crossorigin="anonymous" data-ad-client="%VITE_ADSENSE_ID%"></script>
 
     <!-- Structured Data - Schema.org JSON-LD - Enhanced for AEO -->
     <script type="application/ld+json" id="structured-data">
