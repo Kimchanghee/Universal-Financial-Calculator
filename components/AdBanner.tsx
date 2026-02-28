@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 
 declare global {
     interface Window {
-        adsbygoogle?: any[];
+        adsbygoogle?: unknown[];
     }
 }
 
@@ -14,9 +14,18 @@ interface AdBannerProps {
     slot: string;
 }
 
-// Get AdSense ID from environment variable or use placeholder
 const ADSENSE_ID = import.meta.env.VITE_ADSENSE_ID || 'ca-pub-XXXXXXXXXXXXXXXX';
 const ADSENSE_SCRIPT_ID = 'adsbygoogle-script';
+const SLOT_PLACEHOLDER = '0000000000';
+let hasLoggedMissingAdConfig = false;
+
+const isValidAdSenseId = (id: string): boolean => {
+    return id.startsWith('ca-pub-') && !id.includes('X');
+};
+
+const isValidAdSlot = (slot: string): boolean => {
+    return /^\d{8,}$/.test(slot) && slot !== SLOT_PLACEHOLDER;
+};
 
 const AdBanner: React.FC<AdBannerProps> = ({ width, height, size, label: _label, slot }) => {
     const adRef = useRef<HTMLModElement>(null);
@@ -25,12 +34,15 @@ const AdBanner: React.FC<AdBannerProps> = ({ width, height, size, label: _label,
     useEffect(() => {
         if (!adRef.current) return;
 
-        // Prevent duplicate loading in React Strict Mode
+        // Prevent duplicate loading in React Strict Mode.
         if (isLoaded.current) return;
-        
-        // Skip ad loading if using placeholder ID
-        if (ADSENSE_ID === 'ca-pub-XXXXXXXXXXXXXXXX') {
-            console.warn('AdSense: Using placeholder ID. Please set VITE_ADSENSE_ID environment variable.');
+
+        // Wait until full ad config is provided.
+        if (!isValidAdSenseId(ADSENSE_ID) || !isValidAdSlot(slot)) {
+            if (!hasLoggedMissingAdConfig) {
+                console.warn('AdSense: set VITE_ADSENSE_ID and ad slot env vars before publishing ads.');
+                hasLoggedMissingAdConfig = true;
+            }
             return;
         }
 
@@ -38,7 +50,7 @@ const AdBanner: React.FC<AdBannerProps> = ({ width, height, size, label: _label,
             try {
                 if (adRef.current && window.adsbygoogle) {
                     isLoaded.current = true;
-                    window.adsbygoogle.push({});
+                    (window.adsbygoogle as unknown[]).push({});
                 }
             } catch (e) {
                 console.error('AdSense error:', e);
@@ -68,16 +80,15 @@ const AdBanner: React.FC<AdBannerProps> = ({ width, height, size, label: _label,
     }, [slot]);
 
     const [adWidth, adHeight] = size.split('x');
-    
-    // Show placeholder if no valid AdSense ID
-    if (ADSENSE_ID === 'ca-pub-XXXXXXXXXXXXXXXX') {
+
+    if (!isValidAdSenseId(ADSENSE_ID) || !isValidAdSlot(slot)) {
         return (
             <div className={`flex justify-center items-center ${width} ${height} my-2`}>
-                <div 
+                <div
                     className="flex items-center justify-center bg-slate-100 border-2 border-dashed border-slate-300 rounded-lg text-slate-400 text-sm"
                     style={{ width: `${adWidth}px`, height: `${adHeight}px` }}
                 >
-                    <span>광고 공간 ({size})</span>
+                    <span>Ad Space ({size})</span>
                 </div>
             </div>
         );
@@ -85,7 +96,7 @@ const AdBanner: React.FC<AdBannerProps> = ({ width, height, size, label: _label,
 
     return (
         <div className={`flex justify-center items-center ${width} ${height} my-2`}>
-            <ins 
+            <ins
                 ref={adRef}
                 className="adsbygoogle"
                 style={{ display: 'inline-block', width: `${adWidth}px`, height: `${adHeight}px`, backgroundColor: '#f0f0f0' }}

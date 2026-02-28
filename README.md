@@ -44,8 +44,22 @@ This repository is configured to deploy through Lovable only.
 
 - `VITE_GA_ID` (optional)
 - `VITE_ADSENSE_ID` (optional)
+- `VITE_AD_SLOT_TOP` (optional, required for top ad to render)
+- `VITE_AD_SLOT_BODY` (optional, required for body ad to render)
+- `VITE_AD_SLOT_FOOTER` (optional, required for footer ad to render)
+- `VITE_AD_SLOT_SIDEBAR_LEFT` (optional, required for left sidebar ad to render)
+- `VITE_AD_SLOT_SIDEBAR_RIGHT` (optional, required for right sidebar ad to render)
 - `GEMINI_API_KEY` (optional)
 - `VITE_APP_ENV` (optional, defaults to `development` locally)
+
+## Ad Publishing Readiness
+
+The app is ready to publish on Lovable now. Ads will start serving when all AdSense values are set:
+
+1. `VITE_ADSENSE_ID`
+2. Ad slot IDs (`VITE_AD_SLOT_*`)
+
+If these are not set, the UI shows safe placeholder ad boxes instead of broken ad scripts.
 
 ## SEO Notes
 

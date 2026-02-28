@@ -19,6 +19,15 @@ import FAQ from './components/FAQ';
 import AdBanner from './components/AdBanner';
 import { getSeoData } from './seo';
 
+const DEFAULT_AD_SLOT = '0000000000';
+const AD_SLOTS = {
+    top: import.meta.env.VITE_AD_SLOT_TOP || DEFAULT_AD_SLOT,
+    body: import.meta.env.VITE_AD_SLOT_BODY || DEFAULT_AD_SLOT,
+    footer: import.meta.env.VITE_AD_SLOT_FOOTER || DEFAULT_AD_SLOT,
+    sidebarLeft: import.meta.env.VITE_AD_SLOT_SIDEBAR_LEFT || DEFAULT_AD_SLOT,
+    sidebarRight: import.meta.env.VITE_AD_SLOT_SIDEBAR_RIGHT || DEFAULT_AD_SLOT,
+};
+
 const AppContent: React.FC = () => {
     const { t, setLanguage, language, isLoading } = useLocalization();
     const [activeCalculator, setActiveCalculator] = useState<CalculatorType>(CalculatorType.COMPOUND_INTEREST);
@@ -162,7 +171,7 @@ const AppContent: React.FC = () => {
             <div className="relative flex justify-center">
                 {/* Left Ad Banner */}
                 <aside className="sticky top-0 h-screen hidden xl:flex w-48 flex-shrink-0 items-center justify-center px-4" aria-label={t('adLabel')}>
-                    <AdBanner slot="4444444444" width="w-40" height="h-[600px]" size="160x600" label={t('adLabel')} />
+                    <AdBanner slot={AD_SLOTS.sidebarLeft} width="w-40" height="h-[600px]" size="160x600" label={t('adLabel')} />
                 </aside>
 
                 {/* Main Content */}
@@ -196,7 +205,7 @@ const AppContent: React.FC = () => {
                     </header>
 
                     <div className="px-4 py-2">
-                        <AdBanner slot="1111111111" width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
+                        <AdBanner slot={AD_SLOTS.top} width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
                     </div>
 
                     <main className="px-6 py-8">
@@ -204,12 +213,12 @@ const AppContent: React.FC = () => {
                             {renderPage()}
                         </div>
                         <div className="mt-8">
-                            <AdBanner slot="2222222222" width="w-full" height="h-64" size="336x280" label={t('adLabel')} />
+                            <AdBanner slot={AD_SLOTS.body} width="w-full" height="h-64" size="336x280" label={t('adLabel')} />
                         </div>
                     </main>
 
                     <footer className="px-6 py-10 text-center">
-                        <AdBanner slot="3333333333" width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
+                        <AdBanner slot={AD_SLOTS.footer} width="w-full" height="h-24" size="728x90" label={t('adLabel')} />
                         <nav className="mt-6 mb-4">
                             <div className="flex flex-wrap justify-center gap-4 text-sm">
                                 <button
@@ -258,7 +267,7 @@ const AppContent: React.FC = () => {
 
                 {/* Right Ad Banner */}
                 <aside className="sticky top-0 h-screen hidden xl:flex w-48 flex-shrink-0 items-center justify-center px-4" aria-label={t('adLabel')}>
-                    <AdBanner slot="5555555555" width="w-40" height="h-[600px]" size="160x600" label={t('adLabel')} />
+                    <AdBanner slot={AD_SLOTS.sidebarRight} width="w-40" height="h-[600px]" size="160x600" label={t('adLabel')} />
                 </aside>
             </div>
         </div>
