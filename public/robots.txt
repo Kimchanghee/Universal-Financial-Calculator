@@ -86,7 +86,7 @@ Allow: /
 
 # Sitemap locations
 # TODO: Replace with your actual domain before deployment
-# Example: Sitemap: https://finora.vercel.app/sitemap.xml
+# Example: Sitemap: https://your-project.lovable.app/sitemap.xml
 Sitemap: /sitemap.xml
 
 # Host directive (optional - specify your preferred domain)
