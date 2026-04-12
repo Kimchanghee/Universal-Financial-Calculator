@@ -40,11 +40,6 @@ const AppContent: React.FC = () => {
     const [activeCalculator, setActiveCalculator] = useState<CalculatorType>(CalculatorType.COMPOUND_INTEREST);
     const [activePage, setActivePage] = useState<PageType>(PageType.CALCULATORS);
 
-    // Show loading screen while translations are loading
-    if (isLoading) {
-        return <Loading />;
-    }
-
     useEffect(() => {
         const seoData = getSeoData(language, activeCalculator);
 
@@ -172,6 +167,11 @@ const AppContent: React.FC = () => {
                 return null;
         }
     }, [activePage, activeCalculator, renderCalculator, navItems, t]);
+
+    // Show loading screen while translations are loading
+    if (isLoading) {
+        return <Loading />;
+    }
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-red-50 to-rose-100 font-['Inter',sans-serif] text-slate-800">
