@@ -1,94 +1,41 @@
-# Finora Financial Calculator - Robots.txt
-# Optimized for SEO and AEO (Answer Engine Optimization)
-# IMPORTANT: Update the Sitemap URL below with your actual domain before deployment
+# Finora Financial Calculator - robots.txt
+# https://universal-financial-calculator.vercel.app
 
-# Allow all search engines to crawl everything
 User-agent: *
 Allow: /
-Crawl-delay: 0
 
-# Specific rules for major search engines
 User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Googlebot-Mobile
 Allow: /
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 0
 
-User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-User-agent: Sogou
-Allow: /
-
-User-agent: Exabot
-Allow: /
-
-# AI Crawlers - Allow for AEO (Answer Engine Optimization)
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
 User-agent: Google-Extended
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: Applebot
 Allow: /
 
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: YouBot
+User-agent: Yeti
 Allow: /
 
-User-agent: Diffbot
+User-agent: NaverBot
 Allow: /
 
-# Facebook & Social Media Crawlers
 User-agent: facebookexternalhit
 Allow: /
 
 User-agent: Twitterbot
 Allow: /
 
-User-agent: LinkedInBot
-Allow: /
-
-User-agent: WhatsApp
-Allow: /
-
-# Sitemap locations
-# TODO: Replace with your actual domain before deployment
-# Example: Sitemap: https://your-project.lovable.app/sitemap.xml
-Sitemap: /sitemap.xml
-
-# Host directive (optional - specify your preferred domain)
-# TODO: Uncomment and update with your actual domain
-# Host: https://your-domain.com
+Sitemap: https://universal-financial-calculator.vercel.app/sitemap.xml
+Host: https://universal-financial-calculator.vercel.app
