@@ -1,0 +1,58 @@
+# Universal Financial Calculator - llms.txt
+# https://universal-financial-calculator.vercel.app
+
+> Universal Financial Calculator is a free, all-in-one financial calculator suite providing tools for loans, mortgages, investments, retirement planning, tax estimation, and more. Available in English and Korean.
+
+## Calculators
+
+### Loan & Mortgage
+- Mortgage Calculator: Monthly payments, total interest, amortization schedules
+- Auto Loan Calculator: Car financing calculations with trade-in values
+- Personal Loan Calculator: Unsecured loan payment estimations
+- Student Loan Calculator: Education financing with repayment plans
+
+### Investment & Savings
+- Compound Interest Calculator: Future value projections with regular contributions
+- Investment Return Calculator: ROI, CAGR, and portfolio growth analysis
+- Savings Goal Calculator: Time and monthly savings needed to reach targets
+- Dollar Cost Averaging Calculator: DCA strategy analysis for stocks and crypto
+
+### Retirement Planning
+- Retirement Calculator: Projected retirement savings and income
+- 401(k) Calculator: Employer match optimization
+- IRA Calculator: Traditional vs Roth IRA comparison
+- Social Security Estimator: Benefit projections
+
+### Tax & Income
+- Income Tax Calculator: Federal and state tax estimation
+- Capital Gains Tax Calculator: Investment tax impact analysis
+- Paycheck Calculator: Net pay after deductions
+- Self-Employment Tax Calculator: Freelancer tax obligations
+
+### Business & Real Estate
+- ROI Calculator: Business investment return analysis
+- Break-Even Calculator: Sales volume for profitability
+- Rental Property Calculator: Real estate investment returns
+- Net Worth Calculator: Personal financial snapshot
+
+## Languages
+- English (en) - Primary
+- Korean (ko) - Full translation
+
+## Technical Details
+- Client-side calculations (no data sent to servers)
+- Mobile-responsive design
+- Progressive Web App support
+- Accessible (WCAG 2.1 compliant)
+
+## Structured Data
+- JSON-LD: WebApplication, FAQPage, BreadcrumbList schemas
+- Open Graph and Twitter Card metadata
+- Speakable markup for voice assistants
+
+## Sitemap
+- /sitemap.xml
+- /robots.txt
+
+## Contact
+Website: https://universal-financial-calculator.vercel.app
