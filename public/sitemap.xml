@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Finora Financial Calculator Sitemap
-  IMPORTANT: Update all domain URLs with your actual domain before deployment
-  Example: Replace "https://your-domain.com" with "https://your-project.lovable.app"
--->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <!-- Main Homepage with Multi-language Support -->
   <url>
-    <loc>/</loc>
+    <loc>https://universal-financial-calculator.vercel.app/</loc>
     <lastmod>2025-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -39,7 +34,7 @@
 
   <!-- Compound Interest Calculator - All Languages -->
   <url>
-    <loc>/?calculator=compound-interest&amp;lang=en</loc>
+    <loc>https://universal-financial-calculator.vercel.app/?calculator=compound-interest&amp;lang=en</loc>
     <lastmod>2025-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -47,7 +42,7 @@
 
   <!-- Simple Interest Calculator - All Languages -->
   <url>
-    <loc>/?calculator=simple-interest&amp;lang=en</loc>
+    <loc>https://universal-financial-calculator.vercel.app/?calculator=simple-interest&amp;lang=en</loc>
     <lastmod>2025-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -55,7 +50,7 @@
 
   <!-- Savings Goal Calculator - All Languages -->
   <url>
-    <loc>/?calculator=savings-goal&amp;lang=en</loc>
+    <loc>https://universal-financial-calculator.vercel.app/?calculator=savings-goal&amp;lang=en</loc>
     <lastmod>2025-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -63,7 +58,7 @@
 
   <!-- ROI Calculator - All Languages -->
   <url>
-    <loc>/?calculator=roi&amp;lang=en</loc>
+    <loc>https://universal-financial-calculator.vercel.app/?calculator=roi&amp;lang=en</loc>
     <lastmod>2025-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -71,7 +66,7 @@
 
   <!-- Loan Calculator - All Languages -->
   <url>
-    <loc>/?calculator=loan&amp;lang=en</loc>
+    <loc>https://universal-financial-calculator.vercel.app/?calculator=loan&amp;lang=en</loc>
     <lastmod>2025-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -79,7 +74,7 @@
 
   <!-- Retirement Calculator - All Languages -->
   <url>
-    <loc>/?calculator=retirement&amp;lang=en</loc>
+    <loc>https://universal-financial-calculator.vercel.app/?calculator=retirement&amp;lang=en</loc>
     <lastmod>2025-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -87,7 +82,7 @@
 
   <!-- Inflation Calculator - All Languages -->
   <url>
-    <loc>/?calculator=inflation&amp;lang=en</loc>
+    <loc>https://universal-financial-calculator.vercel.app/?calculator=inflation&amp;lang=en</loc>
     <lastmod>2025-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -95,7 +90,7 @@
 
   <!-- Tip Calculator - All Languages -->
   <url>
-    <loc>/?calculator=tip&amp;lang=en</loc>
+    <loc>https://universal-financial-calculator.vercel.app/?calculator=tip&amp;lang=en</loc>
     <lastmod>2025-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -103,7 +98,7 @@
 
   <!-- Break-Even Calculator - All Languages -->
   <url>
-    <loc>/?calculator=break-even&amp;lang=en</loc>
+    <loc>https://universal-financial-calculator.vercel.app/?calculator=break-even&amp;lang=en</loc>
     <lastmod>2025-02-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
