@@ -19,22 +19,6 @@ import FAQ from './components/FAQ';
 import AdBanner from './components/AdBanner';
 import { getSeoData } from './seo';
 
-const DEFAULT_AD_SLOT = '0000000000';
-const AD_SLOTS = {
-    top: import.meta.env.VITE_AD_SLOT_TOP || DEFAULT_AD_SLOT,
-    body: import.meta.env.VITE_AD_SLOT_BODY || DEFAULT_AD_SLOT,
-    footer: import.meta.env.VITE_AD_SLOT_FOOTER || DEFAULT_AD_SLOT,
-    sidebarLeft: import.meta.env.VITE_AD_SLOT_SIDEBAR_LEFT || DEFAULT_AD_SLOT,
-    sidebarRight: import.meta.env.VITE_AD_SLOT_SIDEBAR_RIGHT || DEFAULT_AD_SLOT,
-};
-const AD_CHANNELS = {
-    top: import.meta.env.VITE_AD_CHANNEL_TOP || '',
-    body: import.meta.env.VITE_AD_CHANNEL_BODY || '',
-    footer: import.meta.env.VITE_AD_CHANNEL_FOOTER || '',
-    sidebarLeft: import.meta.env.VITE_AD_CHANNEL_SIDEBAR_LEFT || '',
-    sidebarRight: import.meta.env.VITE_AD_CHANNEL_SIDEBAR_RIGHT || '',
-};
-
 const AppContent: React.FC = () => {
     const { t, setLanguage, language, isLoading } = useLocalization();
     const [activeCalculator, setActiveCalculator] = useState<CalculatorType>(CalculatorType.COMPOUND_INTEREST);
@@ -179,8 +163,6 @@ const AppContent: React.FC = () => {
                 {/* Left Ad Banner */}
                 <aside className="sticky top-0 h-screen hidden xl:flex w-48 flex-shrink-0 items-center justify-center px-4" aria-label={t('adLabel')}>
                     <AdBanner
-                        slot={AD_SLOTS.sidebarLeft}
-                        channel={AD_CHANNELS.sidebarLeft}
                         placement="sidebar_left"
                         width="w-40"
                         height="h-[600px]"
@@ -222,8 +204,6 @@ const AppContent: React.FC = () => {
 
                     <div className="px-4 py-2">
                         <AdBanner
-                            slot={AD_SLOTS.top}
-                            channel={AD_CHANNELS.top}
                             placement="top"
                             width="w-full"
                             height="h-24"
@@ -241,12 +221,10 @@ const AppContent: React.FC = () => {
                         </div>
                         <div className="mt-8">
                             <AdBanner
-                                slot={AD_SLOTS.body}
-                                channel={AD_CHANNELS.body}
                                 placement="body"
                                 width="w-full"
                                 height="h-64"
-                                size="336x280"
+                                size="300x250"
                                 label={t('adLabel')}
                                 responsive
                                 lazy
@@ -256,8 +234,6 @@ const AppContent: React.FC = () => {
 
                     <footer className="px-6 py-10 text-center">
                         <AdBanner
-                            slot={AD_SLOTS.footer}
-                            channel={AD_CHANNELS.footer}
                             placement="footer"
                             width="w-full"
                             height="h-24"
@@ -323,8 +299,6 @@ const AppContent: React.FC = () => {
                 {/* Right Ad Banner */}
                 <aside className="sticky top-0 h-screen hidden xl:flex w-48 flex-shrink-0 items-center justify-center px-4" aria-label={t('adLabel')}>
                     <AdBanner
-                        slot={AD_SLOTS.sidebarRight}
-                        channel={AD_CHANNELS.sidebarRight}
                         placement="sidebar_right"
                         width="w-40"
                         height="h-[600px]"

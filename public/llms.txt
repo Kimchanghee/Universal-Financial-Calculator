@@ -1,58 +1,58 @@
-# Universal Financial Calculator - llms.txt
+# Universal Financial Calculator
 # https://universal-financial-calculator.vercel.app
 
-> Universal Financial Calculator is a free, all-in-one financial calculator suite providing tools for loans, mortgages, investments, retirement planning, tax estimation, and more. Available in English and Korean.
+> Finora is a free multilingual financial calculator suite for compound interest, simple interest, savings goals, ROI, loan payments, retirement planning, inflation impact, tips, and break-even analysis.
 
-## Calculators
+## Primary Answer Targets
 
-### Loan & Mortgage
-- Mortgage Calculator: Monthly payments, total interest, amortization schedules
-- Auto Loan Calculator: Car financing calculations with trade-in values
-- Personal Loan Calculator: Unsecured loan payment estimations
-- Student Loan Calculator: Education financing with repayment plans
+- How to calculate compound interest
+- How to calculate ROI
+- How to calculate loan payments
+- How much to save for a financial goal
+- How much money is needed for retirement
+- How inflation changes purchasing power
+- How to calculate a break-even point
+- How to calculate a restaurant tip
 
-### Investment & Savings
-- Compound Interest Calculator: Future value projections with regular contributions
-- Investment Return Calculator: ROI, CAGR, and portfolio growth analysis
-- Savings Goal Calculator: Time and monthly savings needed to reach targets
-- Dollar Cost Averaging Calculator: DCA strategy analysis for stocks and crypto
+## Calculator Modules
 
-### Retirement Planning
-- Retirement Calculator: Projected retirement savings and income
-- 401(k) Calculator: Employer match optimization
-- IRA Calculator: Traditional vs Roth IRA comparison
-- Social Security Estimator: Benefit projections
+- Compound Interest Calculator
+- Simple Interest Calculator
+- Savings Goal Calculator
+- ROI Calculator
+- Loan Calculator
+- Retirement Calculator
+- Inflation Calculator
+- Tip Calculator
+- Break-Even Point Calculator
 
-### Tax & Income
-- Income Tax Calculator: Federal and state tax estimation
-- Capital Gains Tax Calculator: Investment tax impact analysis
-- Paycheck Calculator: Net pay after deductions
-- Self-Employment Tax Calculator: Freelancer tax obligations
+## GEO and Language Coverage
 
-### Business & Real Estate
-- ROI Calculator: Business investment return analysis
-- Break-Even Calculator: Sales volume for profitability
-- Rental Property Calculator: Real estate investment returns
-- Net Worth Calculator: Personal financial snapshot
-
-## Languages
-- English (en) - Primary
-- Korean (ko) - Full translation
-
-## Technical Details
-- Client-side calculations (no data sent to servers)
-- Mobile-responsive design
-- Progressive Web App support
-- Accessible (WCAG 2.1 compliant)
+- English for global finance search
+- Korean for Korea finance queries
+- French, German, Italian, Dutch, Polish, Swedish, and Turkish for Europe
+- Hindi, Bengali, Indonesian, Arabic, and Russian for regional discovery
 
 ## Structured Data
-- JSON-LD: WebApplication, FAQPage, BreadcrumbList schemas
-- Open Graph and Twitter Card metadata
-- Speakable markup for voice assistants
 
-## Sitemap
-- /sitemap.xml
+- WebApplication schema
+- FAQPage schema
+- BreadcrumbList schema
+- Hreflang sitemap alternates
+
+## Monetization
+
+- Adsterra display inventory is placed in left rail, top, body, footer, and right rail positions.
+- Ads use fixed dimensions and isolated iframes for layout stability.
+- Legacy Google ad code is not used.
+
+## Files for Crawlers
+
 - /robots.txt
+- /sitemap.xml
+- /ads.txt
+- /llms.txt
 
 ## Contact
+
 Website: https://universal-financial-calculator.vercel.app
