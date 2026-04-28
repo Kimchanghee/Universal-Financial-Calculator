@@ -20,10 +20,10 @@ interface AdBannerProps {
 }
 
 const ADSTERRA_ZONE_KEYS: Record<AdsterraSize, string> = {
-    '728x90': import.meta.env.VITE_ADSTERRA_728_KEY || '597646649691ded77ff2b1bd1f2f2c18',
-    '300x250': import.meta.env.VITE_ADSTERRA_300_KEY || '93cbb983bca006700bd2841567a7426d',
-    '160x600': import.meta.env.VITE_ADSTERRA_160_KEY || '65c06dff13d2d257425e915eb620a28d',
-    '320x50': import.meta.env.VITE_ADSTERRA_320_KEY || 'c14417ab3d65f5aca153f241d20c703d',
+    '728x90': import.meta.env.VITE_ADSTERRA_728_KEY || '07d78d2e028c6943f8c6448e9705a13c',
+    '300x250': import.meta.env.VITE_ADSTERRA_300_KEY || 'b40c91232031bf93e0dcb9ca1c1b86aa',
+    '160x600': import.meta.env.VITE_ADSTERRA_160_KEY || '86855d364c1761b7a851a464df83955a',
+    '320x50': import.meta.env.VITE_ADSTERRA_320_KEY || '4c153d05505ab6f16614080b0c5eb1de',
 };
 
 const ADSTERRA_DIMENSIONS: Record<AdsterraSize, { width: number; height: number }> = {
