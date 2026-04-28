@@ -1,5 +1,5 @@
 # Universal Financial Calculator
-# https://universal-financial-calculator.vercel.app
+# https://finoracalc.tech
 
 > Finora is a free multilingual financial calculator suite for compound interest, simple interest, savings goals, ROI, loan payments, retirement planning, inflation impact, tips, and break-even analysis.
 
@@ -55,4 +55,4 @@
 
 ## Contact
 
-Website: https://universal-financial-calculator.vercel.app
+Website: https://finoracalc.tech

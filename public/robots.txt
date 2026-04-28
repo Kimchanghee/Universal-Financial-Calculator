@@ -1,5 +1,5 @@
 # Finora Financial Calculator - robots.txt
-# https://universal-financial-calculator.vercel.app
+# https://finoracalc.tech
 
 User-agent: *
 Allow: /
@@ -40,5 +40,5 @@ Allow: /
 User-agent: Twitterbot
 Allow: /
 
-Sitemap: https://universal-financial-calculator.vercel.app/sitemap.xml
-Host: https://universal-financial-calculator.vercel.app
+Sitemap: https://finoracalc.tech/sitemap.xml
+Host: https://finoracalc.tech

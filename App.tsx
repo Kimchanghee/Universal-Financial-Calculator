@@ -303,7 +303,7 @@ const AppContent: React.FC = () => {
                 <span>|</span>
                 <a href="https://howmuchis.info" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">HowMuchIs</a>
                 <span>|</span>
-                <a href="https://coinprofitcalculator.com" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Coin Profit Calculator</a>
+                <a href="https://profitcalc.tech" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors">Coin Profit Calculator</a>
               </div>
                         </div>
                     </footer>

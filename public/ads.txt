@@ -1,5 +1,5 @@
 # Ads.txt for Finora Universal Financial Calculator
-ownerdomain=universal-financial-calculator.vercel.app
+ownerdomain=finoracalc.tech
 
 highperformanceformat.com, 25838423, DIRECT
 adsterra.com, 25838423, DIRECT
