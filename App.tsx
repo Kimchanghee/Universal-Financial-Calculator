@@ -39,7 +39,7 @@ const AppContent: React.FC = () => {
             }
         };
         
-        const pageUrl = window.location.origin + window.location.pathname;
+        const pageUrl = 'https://finoracalc.tech' + window.location.pathname;
 
         setMetaTag('meta[name="description"]', seoData.description);
         setMetaTag('meta[name="keywords"]', seoData.keywords);

@@ -155,7 +155,8 @@
 
     <script>
       (function updateDynamicUrls() {
-        var url = window.location.origin + window.location.pathname + window.location.search;
+        var canonicalOrigin = 'https://finoracalc.tech';
+        var url = canonicalOrigin + window.location.pathname + window.location.search;
         var canonicalLink = document.getElementById('canonical-link');
         var ogUrl = document.getElementById('og-url');
         var twitterUrl = document.getElementById('twitter-url');
