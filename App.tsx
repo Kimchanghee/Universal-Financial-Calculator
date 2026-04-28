@@ -23,6 +23,8 @@ const AppContent: React.FC = () => {
     const { t, setLanguage, language, isLoading } = useLocalization();
     const [activeCalculator, setActiveCalculator] = useState<CalculatorType>(CalculatorType.COMPOUND_INTEREST);
     const [activePage, setActivePage] = useState<PageType>(PageType.CALCULATORS);
+    const [showMobileAnchor, setShowMobileAnchor] = useState(false);
+    const [isMobileAnchorDismissed, setIsMobileAnchorDismissed] = useState(false);
 
     useEffect(() => {
         const seoData = getSeoData(language, activeCalculator);
@@ -57,6 +59,17 @@ const AppContent: React.FC = () => {
         }
 
     }, [language, activeCalculator]);
+
+    useEffect(() => {
+        const updateMobileAnchor = () => {
+            setShowMobileAnchor(window.scrollY > 280);
+        };
+
+        updateMobileAnchor();
+        window.addEventListener('scroll', updateMobileAnchor, { passive: true });
+
+        return () => window.removeEventListener('scroll', updateMobileAnchor);
+    }, []);
 
     const navItems = useMemo(() => [
         { key: CalculatorType.COMPOUND_INTEREST, label: t('compoundInterestTitle'), icon: '📈', color: 'from-emerald-500 to-teal-600' },
@@ -158,7 +171,7 @@ const AppContent: React.FC = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-red-50 to-rose-100 font-['Inter',sans-serif] text-slate-800">
+        <div className={`min-h-screen bg-gradient-to-br from-slate-50 via-red-50 to-rose-100 font-['Inter',sans-serif] text-slate-800 ${showMobileAnchor && !isMobileAnchorDismissed ? 'pb-24 md:pb-0' : ''}`.trim()}>
             <div className="relative flex justify-center">
                 {/* Left Ad Banner */}
                 <aside className="sticky top-0 h-screen hidden xl:flex w-48 flex-shrink-0 items-center justify-center px-4" aria-label={t('adLabel')}>
@@ -308,6 +321,28 @@ const AppContent: React.FC = () => {
                     />
                 </aside>
             </div>
+            {showMobileAnchor && !isMobileAnchorDismissed && (
+                <div className="fixed inset-x-0 bottom-0 z-[70] border-t border-slate-200 bg-white/95 px-3 py-2 shadow-2xl md:hidden">
+                    <button
+                        type="button"
+                        aria-label="Close advertisement"
+                        className="absolute right-2 top-1 flex h-6 w-6 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-500"
+                        onClick={() => setIsMobileAnchorDismissed(true)}
+                    >
+                        ×
+                    </button>
+                    <AdBanner
+                        placement="mobile_anchor"
+                        width="w-full"
+                        height="h-[50px]"
+                        size="320x50"
+                        label={t('adLabel')}
+                        priority="high"
+                        responsive
+                        lazy={false}
+                    />
+                </div>
+            )}
         </div>
     );
 };
