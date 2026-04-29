@@ -35,8 +35,28 @@ const ADSTERRA_DIMENSIONS: Record<AdsterraSize, { width: number; height: number 
 
 const ADSTERRA_IFRAME_HOST = 'www.highperformanceformat.com';
 const LAZY_MARGIN = import.meta.env.VITE_ADSTERRA_LAZY_MARGIN || '300px';
+const DESKTOP_MEDIA_QUERY = '(min-width: 768px)';
 
 const isValidZoneKey = (key: string): boolean => /^[a-f0-9]{32}$/i.test(key);
+
+const getIsDesktopViewport = (): boolean =>
+    typeof window !== 'undefined' ? window.matchMedia(DESKTOP_MEDIA_QUERY).matches : true;
+
+const useIsDesktopViewport = (): boolean => {
+    const [isDesktop, setIsDesktop] = useState(getIsDesktopViewport);
+
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+        const mediaQuery = window.matchMedia(DESKTOP_MEDIA_QUERY);
+        const update = () => setIsDesktop(mediaQuery.matches);
+
+        update();
+        mediaQuery.addEventListener?.('change', update);
+        return () => mediaQuery.removeEventListener?.('change', update);
+    }, []);
+
+    return isDesktop;
+};
 
 const trackAdEvent = (name: string, params: Record<string, unknown>): void => {
     if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
@@ -78,22 +98,27 @@ const AdBanner: React.FC<AdBannerProps> = ({
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const uniqueId = useId().replace(/:/g, '');
+    const isDesktopViewport = useIsDesktopViewport();
     const [isEligibleToLoad, setIsEligibleToLoad] = useState(!lazy || priority === 'high');
 
     const desktopSize = getDesktopSize(placement, size);
     const mobileSize = responsive ? getMobileSize(desktopSize) : desktopSize;
-    const desktop = ADSTERRA_DIMENSIONS[desktopSize];
-    const mobile = ADSTERRA_DIMENSIONS[mobileSize];
-    const desktopKey = ADSTERRA_ZONE_KEYS[desktopSize];
-    const mobileKey = ADSTERRA_ZONE_KEYS[mobileSize];
-    const isConfigured = isValidZoneKey(desktopKey) && isValidZoneKey(mobileKey);
+    const activeSize = responsive && !isDesktopViewport ? mobileSize : desktopSize;
+    const activeDimensions = ADSTERRA_DIMENSIONS[activeSize];
+    const activeKey = ADSTERRA_ZONE_KEYS[activeSize];
+    const isConfigured = isValidZoneKey(activeKey);
 
     const placeholderStyle = useMemo(
         () => ({
-            width: responsive ? '100%' : `${desktop.width}px`,
-            minHeight: `${desktop.height}px`,
+            width: responsive ? '100%' : `${activeDimensions.width}px`,
+            minHeight: `${activeDimensions.height}px`,
         }),
-        [desktop.height, desktop.width, responsive],
+        [activeDimensions.height, activeDimensions.width, responsive],
+    );
+
+    const srcDoc = useMemo(
+        () => buildAdsterraSrcDoc(activeKey, activeDimensions.width, activeDimensions.height),
+        [activeDimensions.height, activeDimensions.width, activeKey],
     );
 
     useEffect(() => {
@@ -124,8 +149,8 @@ const AdBanner: React.FC<AdBannerProps> = ({
 
     useEffect(() => {
         if (!isEligibleToLoad || !isConfigured) return;
-        trackAdEvent('adsterra_slot_request', { placement, desktop_size: desktopSize, mobile_size: mobileSize, priority });
-    }, [desktopSize, isConfigured, isEligibleToLoad, mobileSize, placement, priority]);
+        trackAdEvent('adsterra_slot_request', { placement, active_size: activeSize, desktop_size: desktopSize, mobile_size: mobileSize, priority });
+    }, [activeSize, desktopSize, isConfigured, isEligibleToLoad, mobileSize, placement, priority]);
 
     if (!isConfigured || !isEligibleToLoad) {
         return (
@@ -134,7 +159,7 @@ const AdBanner: React.FC<AdBannerProps> = ({
                     className="flex items-center justify-center bg-slate-100 border-2 border-dashed border-slate-300 rounded-lg text-slate-400 text-sm"
                     style={placeholderStyle}
                 >
-                    <span>{label} ({desktopSize})</span>
+                    <span>{label} ({activeSize})</span>
                 </div>
             </div>
         );
@@ -146,23 +171,17 @@ const AdBanner: React.FC<AdBannerProps> = ({
             className={`flex justify-center items-center overflow-hidden ${width} ${height} my-2`}
             role="complementary"
             aria-label={label}
-            style={{ minHeight: `${mobile.height}px` }}
+            style={{ minHeight: `${activeDimensions.height}px` }}
         >
             <iframe
-                title={`${placement}-adsterra-mobile-${uniqueId}`}
-                className="block border-0 md:hidden"
-                width={mobile.width}
-                height={mobile.height}
+                key={`${placement}-${activeSize}`}
+                title={`${placement}-adsterra-${activeSize}-${uniqueId}`}
+                className="block border-0"
+                width={activeDimensions.width}
+                height={activeDimensions.height}
                 scrolling="no"
-                srcDoc={buildAdsterraSrcDoc(mobileKey, mobile.width, mobile.height)}
-            />
-            <iframe
-                title={`${placement}-adsterra-desktop-${uniqueId}`}
-                className="hidden border-0 md:block"
-                width={desktop.width}
-                height={desktop.height}
-                scrolling="no"
-                srcDoc={buildAdsterraSrcDoc(desktopKey, desktop.width, desktop.height)}
+                loading={priority === 'high' ? 'eager' : 'lazy'}
+                srcDoc={srcDoc}
             />
         </div>
     );
