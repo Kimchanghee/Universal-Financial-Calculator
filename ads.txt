@@ -1,5 +1,2 @@
-# Ads.txt for Finora Universal Financial Calculator
-ownerdomain=finoracalc.tech
-
-highperformanceformat.com, 25838423, DIRECT
-adsterra.com, 25838423, DIRECT
+# Display ads are disabled.
+# finoracalc.tech does not authorize third-party display ad sellers.
