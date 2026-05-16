@@ -48,17 +48,15 @@
 - BreadcrumbList schema
 - Hreflang sitemap alternates
 
-## Monetization
+## User Experience
 
-- Adsterra display inventory is placed in left rail, top, body, footer, and right rail positions.
-- Ads use fixed dimensions and isolated iframes for layout stability.
-- Legacy Google ad code is not used.
+- Calculator pages do not use popup, redirect, social bar, anchor, or third-party display network scripts.
+- Results remain directly accessible after a user enters values.
 
 ## Files for Crawlers
 
 - /robots.txt
 - /sitemap.xml
-- /ads.txt
 - /llms.txt
 - /guides/compound-interest-formula.html
 - /guides/roi-formula.html

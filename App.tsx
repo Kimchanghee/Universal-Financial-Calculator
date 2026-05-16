@@ -16,7 +16,6 @@ import AboutUs from './components/AboutUs';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import ContactUs from './components/ContactUs';
 import FAQ from './components/FAQ';
-import AdBanner from './components/AdBanner';
 import ExposureLinks from './components/ExposureLinks';
 import { getSeoData } from './seo';
 import type { SeoData } from './types';
@@ -151,8 +150,6 @@ const AppContent: React.FC = () => {
     const { t, setLanguage, language, isLoading } = useLocalization();
     const [activeCalculator, setActiveCalculator] = useState<CalculatorType>(getInitialCalculator);
     const [activePage, setActivePage] = useState<PageType>(PageType.CALCULATORS);
-    const [showMobileAnchor, setShowMobileAnchor] = useState(false);
-    const [isMobileAnchorDismissed, setIsMobileAnchorDismissed] = useState(false);
 
     useEffect(() => {
         const seoData = getSeoData(language, activeCalculator);
@@ -193,17 +190,6 @@ const AppContent: React.FC = () => {
         }
 
     }, [language, activeCalculator]);
-
-    useEffect(() => {
-        const updateMobileAnchor = () => {
-            setShowMobileAnchor(window.scrollY > 280);
-        };
-
-        updateMobileAnchor();
-        window.addEventListener('scroll', updateMobileAnchor, { passive: true });
-
-        return () => window.removeEventListener('scroll', updateMobileAnchor);
-    }, []);
 
     const navItems = useMemo(() => [
         { key: CalculatorType.COMPOUND_INTEREST, label: t('compoundInterestTitle'), icon: '📈', color: 'from-emerald-500 to-teal-600' },
@@ -305,20 +291,8 @@ const AppContent: React.FC = () => {
     }
 
     return (
-        <div className={`min-h-screen bg-gradient-to-br from-slate-50 via-red-50 to-rose-100 font-['Inter',sans-serif] text-slate-800 ${showMobileAnchor && !isMobileAnchorDismissed ? 'pb-24 md:pb-0' : ''}`.trim()}>
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-red-50 to-rose-100 font-['Inter',sans-serif] text-slate-800">
             <div className="relative flex justify-center">
-                {/* Left Ad Banner */}
-                <aside className="sticky top-0 h-screen hidden xl:flex w-48 flex-shrink-0 items-center justify-center px-4" aria-label={t('adLabel')}>
-                    <AdBanner
-                        placement="sidebar_left"
-                        width="w-40"
-                        height="h-[600px]"
-                        size="160x600"
-                        label={t('adLabel')}
-                        lazy
-                    />
-                </aside>
-
                 {/* Main Content */}
                 <div className="w-full max-w-5xl flex-grow">
                     <header className="bg-white/90 backdrop-blur-xl shadow-2xl border-b-2 border-red-100/50 sticky top-0 z-50">
@@ -349,47 +323,14 @@ const AppContent: React.FC = () => {
                         </div>
                     </header>
 
-                    <div className="px-4 py-2">
-                        <AdBanner
-                            placement="top"
-                            width="w-full"
-                            height="h-24"
-                            size="728x90"
-                            label={t('adLabel')}
-                            priority="high"
-                            responsive
-                            lazy={false}
-                        />
-                    </div>
-
                     <main className="px-6 py-8">
                         <div className="bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl border-2 border-slate-200/50 p-8 md:p-10 transition-all duration-500 hover:shadow-3xl hover:border-red-200/50">
                             {renderPage()}
-                        </div>
-                        <div className="mt-8">
-                            <AdBanner
-                                placement="body"
-                                width="w-full"
-                                height="h-64"
-                                size="300x250"
-                                label={t('adLabel')}
-                                responsive
-                                lazy
-                            />
                         </div>
                         <ExposureLinks />
                     </main>
 
                     <footer className="px-6 py-10 text-center">
-                        <AdBanner
-                            placement="footer"
-                            width="w-full"
-                            height="h-24"
-                            size="728x90"
-                            label={t('adLabel')}
-                            responsive
-                            lazy
-                        />
                         <nav className="mt-6 mb-4">
                             <div className="flex flex-wrap justify-center gap-4 text-sm">
                                 <button
@@ -444,40 +385,7 @@ const AppContent: React.FC = () => {
                     </footer>
                 </div>
 
-                {/* Right Ad Banner */}
-                <aside className="sticky top-0 h-screen hidden xl:flex w-48 flex-shrink-0 items-center justify-center px-4" aria-label={t('adLabel')}>
-                    <AdBanner
-                        placement="sidebar_right"
-                        width="w-40"
-                        height="h-[600px]"
-                        size="160x600"
-                        label={t('adLabel')}
-                        lazy
-                    />
-                </aside>
             </div>
-            {showMobileAnchor && !isMobileAnchorDismissed && (
-                <div className="fixed inset-x-0 bottom-0 z-[70] border-t border-slate-200 bg-white/95 px-3 py-2 shadow-2xl md:hidden">
-                    <button
-                        type="button"
-                        aria-label="Close advertisement"
-                        className="absolute right-2 top-1 flex h-6 w-6 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-500"
-                        onClick={() => setIsMobileAnchorDismissed(true)}
-                    >
-                        ×
-                    </button>
-                    <AdBanner
-                        placement="mobile_anchor"
-                        width="w-full"
-                        height="h-[50px]"
-                        size="320x50"
-                        label={t('adLabel')}
-                        priority="high"
-                        responsive
-                        lazy={false}
-                    />
-                </div>
-            )}
         </div>
     );
 };

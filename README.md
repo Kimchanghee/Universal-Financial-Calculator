@@ -34,15 +34,10 @@ This repository is configured to deploy through Lovable.
 ## Environment Variables
 
 - `VITE_GA_ID` optional Google Analytics measurement ID
-- `VITE_ADSTERRA_728_KEY` optional Adsterra 728x90 override
-- `VITE_ADSTERRA_300_KEY` optional Adsterra 300x250 override
-- `VITE_ADSTERRA_160_KEY` optional Adsterra 160x600 override
-- `VITE_ADSTERRA_320_KEY` optional Adsterra 320x50 override
-- `VITE_ADSTERRA_LAZY_MARGIN` optional IntersectionObserver margin
 - `GEMINI_API_KEY` optional
 - `VITE_APP_ENV` optional
 
-Do not put the private Adsterra Publisher API key in this frontend project.
+Do not put third-party ad network scripts in this frontend project.
 
 ## SEO, GEO, and AEO
 
@@ -53,8 +48,8 @@ Do not put the private Adsterra Publisher API key in this frontend project.
 
 ## Monetization
 
-- Adsterra display placements are configured for side rails, top, body, and footer.
-- Ads use isolated iframes and fixed dimensions.
+- No popup, redirect, social bar, anchor, or third-party display network scripts are configured.
+- Calculator results remain directly accessible without ad interstitials.
 - Legacy Google ad code and configuration have been removed.
 
 ## Project Scripts
