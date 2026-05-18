@@ -234,9 +234,165 @@
     });
   }, { capture: true });
 </script>
+<style>
+  .safe-inline-adsterra {
+    margin: 28px auto 18px;
+    max-width: 980px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+  }
+
+  .safe-inline-adsterra__content {
+    display: grid;
+    gap: 18px;
+    padding: 20px;
+  }
+
+  .safe-inline-adsterra__label {
+    margin: 0 0 8px;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .safe-inline-adsterra__title {
+    margin: 0;
+    color: #0f172a;
+    font-size: 22px;
+    line-height: 1.25;
+  }
+
+  .safe-inline-adsterra__copy {
+    margin: 8px 0 0;
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .safe-inline-adsterra__links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 10px;
+  }
+
+  .safe-inline-adsterra__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 52px;
+    padding: 13px 14px;
+    border: 1px solid rgba(244, 63, 94, 0.22);
+    border-radius: 14px;
+    color: #be123c;
+    background: #fff1f2;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .safe-inline-adsterra__slot {
+    display: flex;
+    min-height: 280px;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    background: #f8fafc;
+  }
+
+  .safe-inline-adsterra__slot iframe {
+    width: 336px;
+    max-width: 100%;
+    height: 280px;
+    border: 0;
+    overflow: hidden;
+    background: transparent;
+  }
+</style>
 </head>
   <body class="bg-gray-100">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
+    <script>
+      (function injectSafeInlineAdsterra() {
+        var AD_KEY = '573fc3bbb0a018f51ddb5fa714641434';
+        var AD_SRC = 'https://www.highperformanceformat.com/' + AD_KEY + '/invoke.js';
+        var TARGET_SELECTORS = ['main', '#root > div', '#root'];
+
+        function track(eventName, params) {
+          if (typeof window.gtag !== 'function') return;
+          window.gtag('event', eventName, Object.assign({
+            page_location: window.location.href,
+            placement: 'finora_safe_inline'
+          }, params || {}));
+        }
+
+        function buildAdFrame() {
+          var iframe = document.createElement('iframe');
+          iframe.title = 'Sponsored calculator resource';
+          iframe.loading = 'lazy';
+          iframe.referrerPolicy = 'no-referrer-when-downgrade';
+          iframe.sandbox = 'allow-scripts allow-forms allow-same-origin';
+          iframe.srcdoc = [
+            '<!doctype html><html><head><meta charset="utf-8">',
+            '<meta name="viewport" content="width=device-width,initial-scale=1">',
+            '<style>html,body{margin:0;padding:0;background:transparent;overflow:hidden}#container-' + AD_KEY + '{display:flex;align-items:center;justify-content:center;min-height:280px}</style>',
+            '</head><body>',
+            '<div id="container-' + AD_KEY + '"></div>',
+            '<script async data-cfasync="false" src="' + AD_SRC + '"><\\/script>',
+            '</body></html>'
+          ].join('');
+          return iframe;
+        }
+
+        function inject() {
+          if (document.querySelector('.safe-inline-adsterra')) return true;
+          var target = TARGET_SELECTORS.map(function(selector) {
+            return document.querySelector(selector);
+          }).find(Boolean);
+          if (!target || target.children.length < 2) return false;
+
+          var section = document.createElement('section');
+          section.className = 'safe-inline-adsterra';
+          section.setAttribute('aria-label', 'Sponsored financial tools');
+          section.innerHTML = [
+            '<div class="safe-inline-adsterra__content">',
+            '<div>',
+            '<p class="safe-inline-adsterra__label">Sponsored resources</p>',
+            '<h2 class="safe-inline-adsterra__title">Compare the next calculator step after you get the number</h2>',
+            '<p class="safe-inline-adsterra__copy">Use these partner research paths after a calculation result. They stay below the tool area so the calculator stays usable first.</p>',
+            '</div>',
+            '<div class="safe-inline-adsterra__links">',
+            '<a class="safe-inline-adsterra__link" href="https://www.amazon.com/s?k=budget+planner&tag=withym-20" rel="sponsored noopener noreferrer" target="_blank" data-affiliate-link data-placement="finora_budget_planner">Budget planners <span>Open</span></a>',
+            '<a class="safe-inline-adsterra__link" href="https://www.amazon.com/s?k=financial+calculator&tag=withym-20" rel="sponsored noopener noreferrer" target="_blank" data-affiliate-link data-placement="finora_financial_calculator">Financial calculators <span>Open</span></a>',
+            '<a class="safe-inline-adsterra__link" href="https://www.amazon.com/s?k=retirement+planning+books&tag=withym-20" rel="sponsored noopener noreferrer" target="_blank" data-affiliate-link data-placement="finora_retirement_books">Retirement guides <span>Open</span></a>',
+            '</div>',
+            '</div>',
+            '<div class="safe-inline-adsterra__slot"></div>'
+          ].join('');
+          section.querySelector('.safe-inline-adsterra__slot').appendChild(buildAdFrame());
+
+          var anchor = document.querySelector('footer') || target.lastElementChild;
+          if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(section, anchor);
+          else target.appendChild(section);
+          track('adsterra_safe_inline_request', { ad_network: 'adsterra', ad_key: AD_KEY });
+          return true;
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', inject);
+        } else {
+          inject();
+        }
+        var attempts = 0;
+        var timer = window.setInterval(function() {
+          attempts += 1;
+          if (inject() || attempts >= 12) window.clearInterval(timer);
+        }, 500);
+      })();
+    </script>
   </body>
 </html>
