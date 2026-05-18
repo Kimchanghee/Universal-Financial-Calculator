@@ -17,6 +17,7 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import ContactUs from './components/ContactUs';
 import FAQ from './components/FAQ';
 import ExposureLinks from './components/ExposureLinks';
+import SafeInlineAdsterra from './components/SafeInlineAdsterra';
 import { getSeoData } from './seo';
 import type { SeoData } from './types';
 
@@ -270,6 +271,7 @@ const AppContent: React.FC = () => {
                         </div>
                         <div className="h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mb-8"></div>
                         {renderCalculator()}
+                        <SafeInlineAdsterra />
                     </>
                 );
             case PageType.ABOUT_US:
