@@ -1,75 +1,21 @@
-# Universal Financial Calculator
-# https://finoracalc.tech
+# FinoraCalc
 
-> Finora is a free multilingual financial calculator suite for compound interest, simple interest, savings goals, ROI, loan payments, retirement planning, inflation impact, tips, and break-even analysis.
+Calculator, FAQ, language alternates, and related finance tools for search discovery.
 
-## Primary Answer Targets
+- Site: https://finoracalc.tech/
+- Discovery map: https://finoracalc.tech/discover.html
+- Sitemap: https://finoracalc.tech/sitemap.xml
+- Robots: https://finoracalc.tech/robots.txt
 
-- How to calculate compound interest
-- How to calculate ROI
-- How to calculate loan payments
-- How much to save for a financial goal
-- How much money is needed for retirement
-- How inflation changes purchasing power
-- How to calculate a break-even point
-- How to calculate a restaurant tip
+## Related owned resources
 
-## Crawlable Answer Guides
-
-- https://finoracalc.tech/guides/compound-interest-formula.html
-- https://finoracalc.tech/guides/roi-formula.html
-- https://finoracalc.tech/guides/loan-payment-formula.html
-- https://finoracalc.tech/guides/retirement-savings-goal.html
-- https://finoracalc.tech/guides/inflation-purchasing-power.html
-
-## Calculator Modules
-
-- Compound Interest Calculator
-- Simple Interest Calculator
-- Savings Goal Calculator
-- ROI Calculator
-- Loan Calculator
-- Retirement Calculator
-- Inflation Calculator
-- Tip Calculator
-- Break-Even Point Calculator
-
-## GEO and Language Coverage
-
-- English for global finance search
-- Korean for Korea finance queries
-- French, German, Italian, Dutch, Polish, Swedish, and Turkish for Europe
-- Hindi, Bengali, Indonesian, Arabic, and Russian for regional discovery
-
-## Structured Data
-
-- WebApplication schema
-- FAQPage schema
-- BreadcrumbList schema
-- Hreflang sitemap alternates
-
-## User Experience
-
-- Calculator pages do not use popup, redirect, social bar, anchor, or third-party display network scripts.
-- Results remain directly accessible after a user enters values.
-
-## Files for Crawlers
-
-- /robots.txt
-- /sitemap.xml
-- /llms.txt
-- /guides/compound-interest-formula.html
-- /guides/roi-formula.html
-- /guides/loan-payment-formula.html
-- /guides/retirement-savings-goal.html
-- /guides/inflation-purchasing-power.html
-
-## Contact
-
-Website: https://finoracalc.tech
-
-## Safe monetization hardening
-
-- Sponsored and affiliate links use nofollow/sponsored attributes.
-- Affiliate clicks are tracked with GA4 affiliate_click where the page has GA enabled.
-- Popup, popunder, social-bar, and redirect-style display ad loaders remain disabled.
+- [Halculator](https://halculator.com/) - CALC
+- [InflationValueCalc](https://inflationvaluecalc.online/) - CALC
+- [SafetyCashCalc](https://safetycashcalc.online/) - CALC
+- [LoanPayoffCalc](https://loanpayoffcalc.online/) - CALC
+- [ProfitCalc](https://profitcalc.tech/) - CALC
+- [SavingsGoalCalc](https://savingsgoalcalc.online/) - CALC
+- [CompoundGrowthCalc](https://compoundgrowthcalc.online/) - CALC
+- [RetirePathCalc](https://retirepathcalc.online/) - CALC
+- [EconoJabis](https://econojabis.com/) - FINANCE
+- [HowMuchIs](https://howmuchis.info/) - FINANCE
