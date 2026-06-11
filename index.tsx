@@ -18,7 +18,11 @@ const GA_PLACEHOLDER = 'G-XXXXXXXXXX';
 
 const hasValidGaId = Boolean(GA_ID && GA_ID !== GA_PLACEHOLDER);
 
-if (hasValidGaId && !document.getElementById('ga-script')) {
+if (
+  hasValidGaId &&
+  typeof window.gtag !== 'function' &&
+  !document.getElementById('ga-script')
+) {
   const gaScript = document.createElement('script');
   gaScript.id = 'ga-script';
   gaScript.async = true;
