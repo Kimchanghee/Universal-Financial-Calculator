@@ -34,6 +34,7 @@ export enum PageType {
     ABOUT_US = 'about',
     PRIVACY_POLICY = 'privacy',
     CONTACT_US = 'contact',
+    TERMS_OF_USE = 'terms',
     FAQ = 'faq',
 }
 

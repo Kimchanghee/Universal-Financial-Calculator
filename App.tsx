@@ -15,6 +15,7 @@ import BreakEvenPointCalculator from './components/BreakEvenPointCalculator';
 import AboutUs from './components/AboutUs';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import ContactUs from './components/ContactUs';
+import TermsOfUse from './components/TermsOfUse';
 import FAQ from './components/FAQ';
 import ExposureLinks from './components/ExposureLinks';
 import SafeInlineSponsored from './components/SafeInlineSponsored';
@@ -54,6 +55,7 @@ const getInitialPage = (): PageType => {
     if (pathSlug === 'about') return PageType.ABOUT_US;
     if (pathSlug === 'privacy') return PageType.PRIVACY_POLICY;
     if (pathSlug === 'contact') return PageType.CONTACT_US;
+    if (pathSlug === 'terms') return PageType.TERMS_OF_USE;
     return PageType.CALCULATORS;
 };
 
@@ -160,6 +162,8 @@ const AppContent: React.FC = () => {
                 return <PrivacyPolicy />;
             case PageType.CONTACT_US:
                 return <ContactUs />;
+            case PageType.TERMS_OF_USE:
+                return <TermsOfUse />;
             case PageType.FAQ:
                 return <FAQ />;
             default:
@@ -241,6 +245,13 @@ const AppContent: React.FC = () => {
                                     className={`hover:text-red-600 transition-colors ${activePage === PageType.CONTACT_US ? 'text-red-600 font-semibold' : 'text-slate-600'}`}
                                 >
                                     {t('navContactUs')}
+                                </button>
+                                <span className="text-slate-300">|</span>
+                                <button
+                                    onClick={() => setActivePage(PageType.TERMS_OF_USE)}
+                                    className={`hover:text-red-600 transition-colors ${activePage === PageType.TERMS_OF_USE ? 'text-red-600 font-semibold' : 'text-slate-600'}`}
+                                >
+                                    Terms
                                 </button>
                                 <span className="text-slate-300">|</span>
                                 <button
