@@ -1,0 +1,217 @@
+{
+  "domain": "finoracalc.tech",
+  "applied_on": "2026-10-13",
+  "skill": {
+    "repo": "https://github.com/leopard627/fire-your-seo-agency",
+    "commit": "5f7249f",
+    "vendored_at": ".agents/skills/fire-your-seo-agency"
+  },
+  "before": {
+    "lanes": {
+      "SEO": "WARN",
+      "AEO": "WARN",
+      "GEO": "OK",
+      "LLMO": "FAIL",
+      "NEO": "WARN"
+    },
+    "crawler_view_home": {
+      "status": 200,
+      "bodyChars": 765,
+      "titleLen": 89,
+      "descLen": 183,
+      "jsonLd": [
+        "WebApplication",
+        "FAQPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "sitemapUrls": 16
+    }
+  },
+  "after": {
+    "lanes": {
+      "SEO": "OK",
+      "AEO": "OK",
+      "GEO": "OK",
+      "LLMO": "OK",
+      "NEO": "OK"
+    },
+    "note": "built dist served locally; live re-audit required after deploy",
+    "site": {
+      "robots": true,
+      "robotsSitemapRef": true,
+      "robotsDisallowAll": false,
+      "aiBotsExplicit": [
+        "GPTBot",
+        "OAI-SearchBot",
+        "ChatGPT-User",
+        "ClaudeBot",
+        "Claude-SearchBot",
+        "Claude-User",
+        "PerplexityBot",
+        "Perplexity-User",
+        "Google-Extended",
+        "Yeti",
+        "Bingbot"
+      ],
+      "sitemap": true,
+      "sitemapUrls": 18,
+      "llmsTxt": true,
+      "llmsLinks": 18,
+      "missingPageStatus": 404
+    },
+    "pages": {
+      "/": {
+        "status": 200,
+        "titleLen": 56,
+        "descLen": 155,
+        "h1": 1,
+        "bodyChars": 3207,
+        "ld": [
+          "Organization",
+          "WebSite",
+          "FAQPage",
+          "ItemList"
+        ],
+        "faq": {
+          "total": 4,
+          "visible": 4
+        },
+        "naverVerify": true
+      },
+      "/compound-interest/": {
+        "status": 200,
+        "titleLen": 59,
+        "descLen": 158,
+        "h1": 1,
+        "bodyChars": 2812,
+        "ld": [
+          "Organization",
+          "WebSite",
+          "WebApplication",
+          "FAQPage",
+          "BreadcrumbList"
+        ],
+        "faq": {
+          "total": 3,
+          "visible": 3
+        },
+        "naverVerify": true
+      },
+      "/loan/": {
+        "status": 200,
+        "titleLen": 59,
+        "descLen": 156,
+        "h1": 1,
+        "bodyChars": 2438,
+        "ld": [
+          "Organization",
+          "WebSite",
+          "WebApplication",
+          "FAQPage",
+          "BreadcrumbList"
+        ],
+        "faq": {
+          "total": 3,
+          "visible": 3
+        },
+        "naverVerify": true
+      },
+      "/about/": {
+        "status": 200,
+        "titleLen": 51,
+        "descLen": 152,
+        "h1": 1,
+        "bodyChars": 3144,
+        "ld": [
+          "Organization",
+          "WebSite",
+          "WebPage",
+          "BreadcrumbList"
+        ],
+        "faq": null,
+        "naverVerify": true
+      },
+      "/privacy/": {
+        "status": 200,
+        "titleLen": 56,
+        "descLen": 153,
+        "h1": 1,
+        "bodyChars": 2831,
+        "ld": [
+          "Organization",
+          "WebSite",
+          "WebPage",
+          "BreadcrumbList"
+        ],
+        "faq": null,
+        "naverVerify": true
+      },
+      "/contact/": {
+        "status": 200,
+        "titleLen": 51,
+        "descLen": 158,
+        "h1": 1,
+        "bodyChars": 1625,
+        "ld": [
+          "Organization",
+          "WebSite",
+          "WebPage",
+          "BreadcrumbList"
+        ],
+        "faq": null,
+        "naverVerify": true
+      },
+      "/guides/roi-formula.html": {
+        "status": 200,
+        "titleLen": 45,
+        "descLen": 104,
+        "h1": 1,
+        "bodyChars": 1001,
+        "ld": [
+          "Article"
+        ],
+        "faq": null,
+        "naverVerify": false
+      }
+    }
+  },
+  "changed": [
+    "build-time static prerender (scripts/prerender.mjs): home, 9 calculator routes (/compound-interest/ ...), about, privacy, contact, 404.html, sitemap with real URLs",
+    "crawler-visible h1, direct answer, worked example from the real formulas, assumptions, visible FAQ exactly matching FAQPage JSON-LD",
+    "one Organization (@id) + WebSite graph; titles 50-60, descriptions 150-160",
+    "client-side head overwrite removed (it replaced title/canonical/JSON-LD with a different page), path routes /slug/ and /about|privacy|contact/ supported, legacy ?calculator= still works",
+    "robots.txt AI crawler policy + Yeti; llms.txt rewritten truthfully (owned-sites cross-link list removed); discover.html noindex and not in sitemap",
+    "en.json: removed false claims (8 languages, expert-verified formulas), privacy now discloses the Adsterra ad",
+    "Naver Search Advisor verification meta added"
+  ],
+  "not_done": [
+    {
+      "item": "ads/Adsterra and ads.txt",
+      "reason": "out of scope, untouched"
+    },
+    {
+      "item": "Crawlable content in other 13 languages",
+      "reason": "interface is translated client-side; static pages are English only"
+    },
+    {
+      "item": "OG image",
+      "reason": "no image asset (favicon.svg only)"
+    },
+    {
+      "item": "Guide pages meta rewrite",
+      "reason": "kept as is (Article schema present)"
+    }
+  ],
+  "user_action_required": [
+    "Upload ~/seo-tools/releases/finoracalc.tech.zip to Cloudflare and re-run audit.mjs on the live domain",
+    "Complete Naver ownership check (meta is in the build) and register in Bing Webmaster"
+  ],
+  "remeasure_on": "2026-10-27",
+  "measure_plan": [
+    "GSC impressions/clicks 28d",
+    "Naver Search Advisor",
+    "AI citation Q&A 5-10 queries",
+    "AI crawler visits"
+  ]
+}

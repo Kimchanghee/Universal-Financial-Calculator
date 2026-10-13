@@ -1,27 +1,27 @@
-# FinoraCalc
+# Finora
 
-Calculator, FAQ, language alternates, and related finance tools for search discovery.
+> Finora is a set of nine free browser-based financial calculators (compound interest, simple interest, savings goal, ROI, loan and mortgage, retirement, inflation, tip, break-even). Each page documents its formula, a worked example and its limits.
 
-- Site: https://finoracalc.tech/
-- Discovery map: https://finoracalc.tech/discover.html
-- Sitemap: https://finoracalc.tech/sitemap.xml
-- Robots: https://finoracalc.tech/robots.txt
+## Core pages
 
-## Related owned resources
+- [Home](https://finoracalc.tech/): overview of all calculators and FAQ
+- [Compound interest calculator](https://finoracalc.tech/compound-interest/): monthly compounding with recurring deposits
+- [Simple interest calculator](https://finoracalc.tech/simple-interest/): principal x rate x years
+- [Savings goal calculator](https://finoracalc.tech/savings-goal/): monthly deposit needed for a target
+- [ROI calculator](https://finoracalc.tech/roi/): net profit and return percentage
+- [Loan and mortgage calculator](https://finoracalc.tech/loan/): monthly payment, total payment, total interest
+- [Retirement calculator](https://finoracalc.tech/retirement/): projected savings at retirement age
+- [Inflation calculator](https://finoracalc.tech/inflation/): future cost at a constant inflation rate
+- [Tip calculator](https://finoracalc.tech/tip/): tip, total and per-person amount
+- [Break-even calculator](https://finoracalc.tech/break-even/): break-even units and revenue
+- [About](https://finoracalc.tech/about/), [Privacy](https://finoracalc.tech/privacy/), [Contact](https://finoracalc.tech/contact/)
+- Guides: [compound interest formula](https://finoracalc.tech/guides/compound-interest-formula.html), [ROI formula](https://finoracalc.tech/guides/roi-formula.html), [loan payment formula](https://finoracalc.tech/guides/loan-payment-formula.html), [retirement savings goal](https://finoracalc.tech/guides/retirement-savings-goal.html), [inflation and purchasing power](https://finoracalc.tech/guides/inflation-purchasing-power.html)
 
-- [Halculator](https://halculator.com/) - CALC
-- [InflationValueCalc](https://inflationvaluecalc.online/) - CALC
-- [SafetyCashCalc](https://safetycashcalc.online/) - CALC
-- [LoanPayoffCalc](https://loanpayoffcalc.online/) - CALC
-- [ProfitCalc](https://profitcalc.tech/) - CALC
-- [SavingsGoalCalc](https://savingsgoalcalc.online/) - CALC
-- [CompoundGrowthCalc](https://compoundgrowthcalc.online/) - CALC
-- [RetirePathCalc](https://retirepathcalc.online/) - CALC
-- [EconoJabis](https://econojabis.com/) - FINANCE
-- [HowMuchIs](https://howmuchis.info/) - FINANCE
+## Data policy
 
-## Safe monetization hardening
-
-- Sponsored and affiliate links use nofollow/sponsored attributes.
-- Affiliate clicks are tracked with GA4 affiliate_click where the page has GA enabled.
-- Popup, popunder, social-bar, and redirect-style display ad loaders remain disabled.
+- Source: standard financial arithmetic documented on each page; no external data feed is used, so results depend only on the user's inputs.
+- Refresh: formulas and explanations last reviewed 2026-10-13.
+- Privacy: calculations run in the browser; typed values are not sent to or stored by the site. Google Analytics measures page visits.
+- Advertising: pages can show one third-party display ad (Adsterra); it does not affect calculation results.
+- Languages: the interface supports 14 languages; the crawlable page content is in English.
+- Citation: cite as "Finora (finoracalc.tech)" with the page URL.

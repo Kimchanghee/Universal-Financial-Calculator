@@ -18,8 +18,6 @@ import ContactUs from './components/ContactUs';
 import FAQ from './components/FAQ';
 import ExposureLinks from './components/ExposureLinks';
 import SafeInlineSponsored from './components/SafeInlineSponsored';
-import { getSeoData } from './seo';
-import type { SeoData } from './types';
 
 const CALCULATOR_SLUGS: Record<CalculatorType, string> = {
     [CalculatorType.COMPOUND_INTEREST]: 'compound-interest',
@@ -42,154 +40,36 @@ const CALCULATOR_BY_SLUG: Record<string, CalculatorType> = Object.entries(CALCUL
     {} as Record<string, CalculatorType>,
 );
 
-const GUIDE_LINKS = [
-    { name: 'Compound interest formula', url: 'https://finoracalc.tech/guides/compound-interest-formula.html' },
-    { name: 'ROI formula', url: 'https://finoracalc.tech/guides/roi-formula.html' },
-    { name: 'Loan payment formula', url: 'https://finoracalc.tech/guides/loan-payment-formula.html' },
-    { name: 'Retirement savings goal', url: 'https://finoracalc.tech/guides/retirement-savings-goal.html' },
-    { name: 'Inflation purchasing power', url: 'https://finoracalc.tech/guides/inflation-purchasing-power.html' },
-];
-
 const getInitialCalculator = (): CalculatorType => {
     if (typeof window === 'undefined') return CalculatorType.COMPOUND_INTEREST;
+    const pathSlug = window.location.pathname.replace(/^\/+|\/+$/g, '');
+    if (pathSlug && CALCULATOR_BY_SLUG[pathSlug]) return CALCULATOR_BY_SLUG[pathSlug];
     const calculatorParam = new URLSearchParams(window.location.search).get('calculator');
     return calculatorParam ? CALCULATOR_BY_SLUG[calculatorParam] ?? CalculatorType.COMPOUND_INTEREST : CalculatorType.COMPOUND_INTEREST;
 };
 
-const getCanonicalPageUrl = (language: string, calculator: CalculatorType): string => {
-    const url = new URL('/', 'https://finoracalc.tech');
-    url.searchParams.set('calculator', CALCULATOR_SLUGS[calculator]);
-    url.searchParams.set('lang', language);
-    return url.toString();
+const getInitialPage = (): PageType => {
+    if (typeof window === 'undefined') return PageType.CALCULATORS;
+    const pathSlug = window.location.pathname.replace(/^\/+|\/+$/g, '');
+    if (pathSlug === 'about') return PageType.ABOUT_US;
+    if (pathSlug === 'privacy') return PageType.PRIVACY_POLICY;
+    if (pathSlug === 'contact') return PageType.CONTACT_US;
+    return PageType.CALCULATORS;
 };
-
-const createStructuredDataGraph = (
-    seoData: SeoData,
-    language: string,
-    calculator: CalculatorType,
-    pageUrl: string,
-): object => ({
-    '@context': 'https://schema.org',
-    '@graph': [
-        {
-            ...(seoData.structuredData as Record<string, unknown>),
-            '@id': `${pageUrl}#software`,
-            url: pageUrl,
-            inLanguage: language,
-        },
-        {
-            '@type': 'WebPage',
-            '@id': `${pageUrl}#webpage`,
-            url: pageUrl,
-            name: seoData.title,
-            description: seoData.description,
-            inLanguage: language,
-        },
-        {
-            '@type': 'FAQPage',
-            '@id': `${pageUrl}#faq`,
-            mainEntity: [
-                {
-                    '@type': 'Question',
-                    name: 'How do I calculate compound interest?',
-                    acceptedAnswer: {
-                        '@type': 'Answer',
-                        text: 'Use principal, interest rate, compounding frequency, time, and optional recurring deposits to estimate future value.',
-                    },
-                },
-                {
-                    '@type': 'Question',
-                    name: 'How do I calculate ROI?',
-                    acceptedAnswer: {
-                        '@type': 'Answer',
-                        text: 'Subtract investment cost from final value, divide by cost, then multiply by 100 to get return on investment percentage.',
-                    },
-                },
-                {
-                    '@type': 'Question',
-                    name: 'How do I calculate a loan payment?',
-                    acceptedAnswer: {
-                        '@type': 'Answer',
-                        text: 'Use loan amount, periodic interest rate, and number of payments to estimate the fixed monthly payment.',
-                    },
-                },
-            ],
-        },
-        {
-            '@type': 'ItemList',
-            '@id': 'https://finoracalc.tech/#answer-guides',
-            name: 'Financial calculator answer guides',
-            itemListElement: GUIDE_LINKS.map((guide, index) => ({
-                '@type': 'ListItem',
-                position: index + 1,
-                name: guide.name,
-                url: guide.url,
-            })),
-        },
-        {
-            '@type': 'BreadcrumbList',
-            '@id': `${pageUrl}#breadcrumb`,
-            itemListElement: [
-                {
-                    '@type': 'ListItem',
-                    position: 1,
-                    name: 'Finora',
-                    item: 'https://finoracalc.tech/',
-                },
-                {
-                    '@type': 'ListItem',
-                    position: 2,
-                    name: CALCULATOR_SLUGS[calculator],
-                    item: pageUrl,
-                },
-            ],
-        },
-    ],
-});
 
 const AppContent: React.FC = () => {
     const { t, setLanguage, language, isLoading } = useLocalization();
     const [activeCalculator, setActiveCalculator] = useState<CalculatorType>(getInitialCalculator);
-    const [activePage, setActivePage] = useState<PageType>(PageType.CALCULATORS);
+    const [activePage, setActivePage] = useState<PageType>(getInitialPage);
 
     useEffect(() => {
-        const seoData = getSeoData(language, activeCalculator);
-
-        document.title = seoData.title;
+        // The prerendered HTML already carries the correct title, description, canonical and JSON-LD for this URL.
+        // Do not overwrite them client-side (that made the head disagree with the visible page).
         document.documentElement.lang = language;
-
-        const setMetaTag = (selector: string, content: string, attr = 'content') => {
-            let element = document.querySelector(selector) as HTMLElement | null;
-            if (element) {
-                element.setAttribute(attr, content);
-            }
-        };
-        
-        const pageUrl = getCanonicalPageUrl(language, activeCalculator);
         const currentUrl = new URL(window.location.href);
-        currentUrl.searchParams.set('calculator', CALCULATOR_SLUGS[activeCalculator]);
+        currentUrl.searchParams.delete('calculator');
         currentUrl.searchParams.set('lang', language);
         window.history.replaceState({}, '', `${currentUrl.pathname}${currentUrl.search}${currentUrl.hash}`);
-
-        setMetaTag('meta[name="description"]', seoData.description);
-        setMetaTag('meta[name="keywords"]', seoData.keywords);
-        setMetaTag('link[rel="canonical"]', pageUrl, 'href');
-
-        setMetaTag('meta[property="og:title"]', seoData.title);
-        setMetaTag('meta[property="og:description"]', seoData.description);
-        setMetaTag('meta[property="og:url"]', pageUrl);
-        
-        setMetaTag('meta[name="twitter:title"]', seoData.title);
-        setMetaTag('meta[name="twitter:description"]', seoData.description);
-        setMetaTag('meta[name="twitter:url"]', pageUrl);
-
-        const structuredDataScript = document.getElementById('structured-data');
-        if (structuredDataScript) {
-            structuredDataScript.innerHTML = JSON.stringify(
-                createStructuredDataGraph(seoData, language, activeCalculator, pageUrl),
-            );
-        }
-
     }, [language, activeCalculator]);
 
     const navItems = useMemo(() => [
